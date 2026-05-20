@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scientific Linux 2.0 - Sitio Oficial</title>
+    <title>Scientific Linux 2.0</title>
     <style>
+        /* Fondo azul para toda la página */
         body {
-            background-color: #0f172a;
-            color: #cbd5e1;
+            background-color: #0d47a1; 
+            color: white;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
@@ -16,96 +17,175 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-        }
-
-        .main-title {
-            color: #38bdf8; /* El azulito que te gustó */
-            font-size: 2.8rem;
-            margin-bottom: 5px;
             text-align: center;
-            text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
-        }
-
-        .subtitle {
-            font-size: 1.1rem;
-            color: #94a3b8;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        /* Contenedor de la estructura principal */
-        .grid-layout {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 40px;
-            max-width: 1000px;
-            width: 90%;
-            margin-bottom: 40px;
-        }
-
-        /* Las dos bromas/bloques de los lados */
-        .side-box {
-            background-color: #1e293b;
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid #38bdf8; /* Le puse el mismo azulito al borde para que resalte más */
-            width: 250px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .side-box h2 {
-            color: #38bdf8; /* El azulito en los subtítulos */
-            font-size: 1.3rem;
-            margin-top: 0;
-        }
-
-        .side-box p {
-            font-size: 0.95rem;
-            line-height: 1.5;
-            color: #94a3b8;
-        }
-
-        /* El átomo gris en el centro con animación */
-        .atom-container {
             position: relative;
-            width: 150px;
-            height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: atomRotate 20s linear infinite; /* Esto hace que todo el átomo gire suavemente */
+            box-sizing: border-box;
         }
 
-        /* Núcleo del átomo */
-        .atom-center {
-            width: 20px;
-            height: 20px;
-            background-color: #788292;
-            border-radius: 50%;
-            box-shadow: 0 0 12px #64748b;
-        }
-
-        /* Órbitas del átomo en color gris */
-        .orbit {
+        /* Contenedor del átomo en la esquina superior izquierda */
+        .esquina-atomo {
             position: absolute;
-            border: 2px solid #64748b;
+            top: 20px;
+            left: 20px;
+        }
+
+        /* Dibujo del átomo con CSS puro */
+        .atomo {
+            position: relative;
+            width: 60px;
+            height: 60px;
+        }
+        .orbita {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 2px solid rgba(255, 255, 255, 0.6);
             border-radius: 50%;
-            width: 140px;
-            height: 45px;
+        }
+        .orbita:nth-child(1) { transform: rotateX(75deg) rotateY(15deg); }
+        .orbita:nth-child(2) { transform: rotateX(75deg) rotateY(135deg); }
+        .orbita:nth-child(3) { transform: rotateX(15deg) rotateY(75deg); }
+        
+        .nucleo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 12px;
+            height: 12px;
+            background-color: #00e5ff;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px #00e5ff;
         }
 
-        .orbit:nth-child(1) { transform: rotate(0deg); }
-        .orbit:nth-child(2) { transform: rotate(60deg); }
-        .orbit:nth-child(3) { transform: rotate(120deg); }
-
-        /* Animación para que gire */
-        @keyframes atomRotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+        /* Título Principal */
+        h1 {
+            font-size: 3rem;
+            margin-top: 60px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
         }
 
+        p.subtitulo {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: #e0e0e0;
+        }
+
+        /* Contenedor de las secciones */
+        .secciones-container {
+            display: flex;
+            gap: 30px;
+            max-width: 800px;
+            width: 90%;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 80px; /* Espacio para que no pise el pie de página */
+        }
+
+        /* Tarjetas para Estudiantes y Científicos */
+        .tarjeta {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 30px;
+            flex: 1;
+            min-width: 250px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-5px);
+            background-color: rgba(255, 255, 255, 0.18);
+            border-color: #00e5ff;
+        }
+
+        .tarjeta h2 {
+            font-size: 1.8rem;
+            margin-top: 0;
+            color: #00e5ff;
+        }
+
+        .tarjeta p {
+            font-size: 1rem;
+            color: #f5f5f5;
+            line-height: 1.5;
+        }
+
+        /* Botones de acción */
+        .boton {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #00e5ff;
+            color: #0d47a1;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 6px;
+            transition: background-color 0.2s;
+        }
+
+        .boton:hover {
+            background-color: #ffffff;
+        }
+
+        /* Pie de página con los nombres */
         footer {
-            text-align: center;
-            font-size: 0.85rem;
-            color: #64748b
+            margin-top: auto;
+            width: 100%;
+            padding: 20px 0;
+            background-color: rgba(0, 0, 0, 0.2);
+            font-size: 1rem;
+            color: #b0bec5;
+        }
+
+        footer strong {
+            color: #00e5ff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- El átomo en la esquina -->
+    <div class="esquina-atomo">
+        <div class="atomo">
+            <div class="orbita"></div>
+            <div class="orbita"></div>
+            <div class="orbita"></div>
+            <div class="nucleo"></div>
+        </div>
+    </div>
+
+    <!-- Título del Sistema Operativo -->
+    <h1>Scientific Linux 2.0</h1>
+    <p class="subtitulo">El sistema definitivo para la ciencia y el aprendizaje</p>
+
+    <!-- Las dos partes solicitadas -->
+    <div class="secciones-container">
+        
+        <!-- Parte 1: Para Estudiantes -->
+        <div class="tarjeta">
+            <h2>Para Estudiantes</h2>
+            <p>Explora herramientas educativas, aplicaciones ligeras y todo lo que necesitas para tus clases y proyectos técnicos sin forzar tu computadora.</p>
+            <a href="#" class="boton">Entrar Estudiantes</a>
+        </div>
+
+        <!-- Parte 2: Para Científicos -->
+        <div class="tarjeta">
+            <h2>Para Científicos</h2>
+            <p>Accede a herramientas avanzadas de desarrollo, análisis de datos y entornos optimizados para investigación científica de alto nivel.</p>
+            <a href="#" class="boton">Entrar Científicos</a>
+        </div>
+
+    </div>
+
+    <!-- Créditos al final de la página -->
+    <footer>
+        Desarrollado por <strong>Deyner</strong> & <strong>Gemini</strong>
+    </footer>
+
+</body>
+</html>
