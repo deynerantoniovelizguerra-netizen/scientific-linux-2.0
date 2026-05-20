@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scientific Linux 2.0</title>
     <style>
-        /* Fondo azul para toda la página */
+        /* Fondo blanco limpio y profesional */
         body {
-            background-color: #0d47a1; 
-            color: white;
+            background-color: #ffffff; 
+            color: #212121;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
@@ -29,7 +29,7 @@
             left: 20px;
         }
 
-        /* Dibujo del átomo con CSS puro */
+        /* Dibujo del átomo adaptado para fondo claro */
         .atomo {
             position: relative;
             width: 60px;
@@ -41,7 +41,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            border: 2px solid rgba(255, 255, 255, 0.6);
+            border: 2px solid rgba(13, 71, 161, 0.3);
             border-radius: 50%;
         }
         .orbita:nth-child(1) { transform: rotateX(75deg) rotateY(15deg); }
@@ -54,10 +54,10 @@
             left: 50%;
             width: 12px;
             height: 12px;
-            background-color: #00e5ff;
+            background-color: #0d47a1;
             border-radius: 50%;
             transform: translate(-50%, -50%);
-            box-shadow: 0 0 10px #00e5ff;
+            box-shadow: 0 0 8px rgba(13, 71, 161, 0.5);
         }
 
         /* Título Principal */
@@ -65,21 +65,22 @@
             font-size: 3rem;
             margin-top: 60px;
             margin-bottom: 5px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+            color: #0d47a1;
+            font-weight: 700;
         }
 
         p.subtitulo {
             font-size: 1.2rem;
             margin-bottom: 15px;
-            color: #e0e0e0;
+            color: #555555;
         }
 
         /* Alerta de Fecha no determinada */
         .fecha-lanzamiento {
             font-size: 1rem;
-            background-color: rgba(255, 152, 0, 0.2);
+            background-color: #fff3e0;
             border: 1px solid #ff9800;
-            color: #ffb74d;
+            color: #e65100;
             padding: 6px 15px;
             border-radius: 20px;
             margin-bottom: 40px;
@@ -98,69 +99,69 @@
             margin-bottom: 80px;
         }
 
-        /* Tarjetas para Estudiantes y Científicos */
+        /* Tarjetas de contenido con fondo gris muy suave */
         .tarjeta {
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            background-color: #f8f9fa;
+            border: 2px solid #e0e0e0;
             border-radius: 12px;
             padding: 30px;
             flex: 1;
             min-width: 250px;
-            backdrop-filter: blur(10px);
-            transition: transform 0.3s ease, background-color 0.3s ease;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .tarjeta:hover {
             transform: translateY(-5px);
-            background-color: rgba(255, 255, 255, 0.18);
-            border-color: #00e5ff;
+            border-color: #0d47a1;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
         }
 
         .tarjeta h2 {
             font-size: 1.8rem;
             margin-top: 0;
-            color: #00e5ff;
+            color: #0d47a1;
         }
 
         .tarjeta p {
             font-size: 1rem;
-            color: #f5f5f5;
+            color: #616161;
             line-height: 1.5;
         }
 
-        /* Botones de acción (Modo: En procedimiento) */
+        /* Botones de acción en modo: En procedimiento */
         .boton-procedimiento {
             display: inline-block;
             margin-top: 15px;
             padding: 10px 20px;
-            background-color: rgba(255, 255, 255, 0.15);
-            color: #b0bec5;
+            background-color: #eeeeee;
+            color: #757575;
             text-decoration: none;
             font-weight: bold;
             border-radius: 6px;
-            border: 1px dashed rgba(255, 255, 255, 0.3);
+            border: 1px dashed #bdbdbd;
             cursor: not-allowed;
             transition: all 0.2s;
         }
 
         .tarjeta:hover .boton-procedimiento {
-            border-color: #00e5ff;
-            color: #00e5ff;
-            background-color: rgba(0, 229, 255, 0.05);
+            border-color: #0d47a1;
+            color: #0d47a1;
+            background-color: rgba(13, 71, 161, 0.05);
         }
 
-        /* Pie de página con los nombres */
+        /* Pie de página serio */
         footer {
             margin-top: auto;
             width: 100%;
             padding: 20px 0;
-            background-color: rgba(0, 0, 0, 0.2);
+            background-color: #f5f5f5;
+            border-top: 1px solid #e0e0e0;
             font-size: 1rem;
-            color: #b0bec5;
+            color: #616161;
         }
 
         footer strong {
-            color: #00e5ff;
+            color: #0d47a1;
         }
     </style>
 </head>
@@ -185,7 +186,7 @@
         Lanzamiento: Fecha no determinada
     </div>
 
-    <!-- Las dos partes solicitadas -->
+    <!-- Las dos partes del proyecto -->
     <div class="secciones-container">
         
         <!-- Parte 1: Para Estudiantes -->
