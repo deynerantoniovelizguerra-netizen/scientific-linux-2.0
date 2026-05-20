@@ -3,130 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scientific Linux 2.0 - Oficial</title>
+    <title>Scientific Linux 2.0 - Sitio Oficial</title>
     <style>
-        /* Estilos del laboratorio del sistema */
         body {
-            background-color: #0b0f19; /* Fondo negro azulado espacial */
-            color: #ffffff;
+            background-color: #0f172a;
+            color: #cbd5e1;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
         }
-
-        /* Contenedor principal */
         .container {
-            max-width: 900px;
-            margin: 50px auto;
+            text-align: center;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid #00d2ff; /* Borde color átomo (Cyan) */
-            border-radius: 15px;
-            box-shadow: 0px 0px 20px rgba(0, 210, 255, 0.2);
+            background-color: #1e293b;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            width: 90%;
+            border: 1px solid #38bdf8;
         }
-
-        /* Título Principal */
         h1 {
-            color: #00d2ff; /* Color Cyan brillante */
-            font-size: 3rem;
+            color: #38bdf8;
+            font-size: 2.5rem;
             margin-bottom: 10px;
-            text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
         }
-
-        .version {
-            background-color: #ff007f; /* Magenta eléctrico del átomo */
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        .status {
+            display: inline-block;
+            background-color: #0284c7;
             color: white;
-            padding: 5px 15px;
+            padding: 8px 16px;
             border-radius: 20px;
             font-weight: bold;
-            font-size: 1.2rem;
-            display: inline-block;
-            margin-bottom: 30px;
+            margin-top: 15px;
         }
-
-        /* Foto del Logo */
-        .logo-box img {
-            max-width: 200px;
-            height: auto;
-            animation: orbitar 10s linear infinite; /* Animación sutil de átomo */
-        }
-
-        /* Las dos secciones/bloques que me pediste */
-        .secciones-container {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin-top: 40px;
-        }
-
-        .bloque-info {
-            background: #121824;
-            border: 2px solid #ff007f; /* Borde magenta */
-            border-radius: 10px;
-            width: 40%;
-            min-width: 280px;
-            padding: 20px;
-            margin: 10px;
-            box-shadow: 0 4px 10px rgba(255, 0, 127, 0.1);
-            transition: 0.3s;
-        }
-
-        .bloque-info:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0, 210, 255, 0.4);
-            border-color: #00d2ff;
-        }
-
-        .bloque-info h2 {
-            color: #00d2ff;
-            margin-top: 0;
-        }
-
-        .bloque-info p {
-            color: #b4c6ef;
-            font-size: 1.1rem;
-            line-height: 1.5;
-        }
-
-        /* Créditos abajo */
         footer {
-            margin-top: 50px;
-            font-size: 0.9rem;
-            color: #56698f;
+            margin-top: 30px;
+            font-size: 0.8rem;
+            color: #64748b;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <div class="logo-box">
-            <img src="logo.png" alt="Scientific Linux Átomo">
-        </div>
-
-        <h1>Scientific Linux</h1>
-        <div class="version">Versión 2.0 (2026)</div>
-
-        <p style="font-size: 1.2rem; color: #a0aec0;">Rescate, desarrollo y optimización del sistema para computadoras de bajos recursos.</p>
-
-        <div class="secciones-container">
-            
-            <div class="bloque-info">
-                <h2>Científicos y 2.0 para Estudiantes</h2>
-                <p>Una versión diseñada especialmente para los laboratorios, el liceo y el estudio. Optimizado para abrir navegadores ligeros y herramientas educativas sin colgar la computadora.</p>
-            </div>
-
-            <div class="bloque-info">
-                <h2>Scientific Linux para Científicos</h2>
-                <p>El núcleo puro del sistema adaptado al 2026. Diseñado para revivir el legado de los grandes laboratorios con un rendimiento estricto, frío y veloz en hardware limitado.</p>
-            </div>
-
-        </div>
-
-        <footer>
-            Desarrollado en 2026 por Deyner y Gemini. Bajo licencia GNU GPL v3.0.
-        </footer>
+        <h1>Scientific Linux 2.0</h1>
+        <p>Bienvenido al repositorio oficial del sistema de rescate científico.</p>
+        <p>Este proyecto está diseñado para ser un sistema optimizado, ligero y eficiente, ideal para la recuperación de equipos y pruebas de rendimiento técnico.</p>
+        <div class="status">Proyecto en Desarrollo Activo</div>
     </div>
+
+    <footer>
+        <p>&copy; 2026 - Creado por Deyner & Gemini</p>
+    </footer>
 
 </body>
 </html>
