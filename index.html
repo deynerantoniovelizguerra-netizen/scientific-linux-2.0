@@ -64,14 +64,27 @@
         h1 {
             font-size: 3rem;
             margin-top: 60px;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
         }
 
         p.subtitulo {
             font-size: 1.2rem;
-            margin-bottom: 40px;
+            margin-bottom: 15px;
             color: #e0e0e0;
+        }
+
+        /* Alerta de Fecha no determinada */
+        .fecha-lanzamiento {
+            font-size: 1rem;
+            background-color: rgba(255, 152, 0, 0.2);
+            border: 1px solid #ff9800;
+            color: #ffb74d;
+            padding: 6px 15px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            display: inline-block;
+            font-weight: bold;
         }
 
         /* Contenedor de las secciones */
@@ -82,7 +95,7 @@
             width: 90%;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 80px; /* Espacio para que no pise el pie de página */
+            margin-bottom: 80px;
         }
 
         /* Tarjetas para Estudiantes y Científicos */
@@ -115,21 +128,25 @@
             line-height: 1.5;
         }
 
-        /* Botones de acción */
-        .boton {
+        /* Botones de acción (Modo: En procedimiento) */
+        .boton-procedimiento {
             display: inline-block;
             margin-top: 15px;
             padding: 10px 20px;
-            background-color: #00e5ff;
-            color: #0d47a1;
+            background-color: rgba(255, 255, 255, 0.15);
+            color: #b0bec5;
             text-decoration: none;
             font-weight: bold;
             border-radius: 6px;
-            transition: background-color 0.2s;
+            border: 1px dashed rgba(255, 255, 255, 0.3);
+            cursor: not-allowed;
+            transition: all 0.2s;
         }
 
-        .boton:hover {
-            background-color: #ffffff;
+        .tarjeta:hover .boton-procedimiento {
+            border-color: #00e5ff;
+            color: #00e5ff;
+            background-color: rgba(0, 229, 255, 0.05);
         }
 
         /* Pie de página con los nombres */
@@ -162,6 +179,11 @@
     <!-- Título del Sistema Operativo -->
     <h1>Scientific Linux 2.0</h1>
     <p class="subtitulo">El sistema definitivo para la ciencia y el aprendizaje</p>
+    
+    <!-- Indicador de Fecha No Determinada -->
+    <div class="fecha-lanzamiento">
+        Lanzamiento: Fecha no determinada
+    </div>
 
     <!-- Las dos partes solicitadas -->
     <div class="secciones-container">
@@ -170,14 +192,14 @@
         <div class="tarjeta">
             <h2>Para Estudiantes</h2>
             <p>Explora herramientas educativas, aplicaciones ligeras y todo lo que necesitas para tus clases y proyectos técnicos sin forzar tu computadora.</p>
-            <a href="#" class="boton">Entrar Estudiantes</a>
+            <span class="boton-procedimiento">En procedimiento</span>
         </div>
 
         <!-- Parte 2: Para Científicos -->
         <div class="tarjeta">
             <h2>Para Científicos</h2>
             <p>Accede a herramientas avanzadas de desarrollo, análisis de datos y entornos optimizados para investigación científica de alto nivel.</p>
-            <a href="#" class="boton">Entrar Científicos</a>
+            <span class="boton-procedimiento">En procedimiento</span>
         </div>
 
     </div>
