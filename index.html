@@ -39,6 +39,20 @@
             border-bottom: 1px solid #cccccc;
         }
 
+        /* Contenedor para agrupar el logo y el texto a la izquierda */
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Espacio entre el logo de imagen y el texto */
+        }
+
+        /* Estilo para tu logo subido */
+        .main-logo-img {
+            height: 55px; /* Tamaño ideal para que encaje fino en el banner */
+            width: auto;
+            display: block;
+        }
+
         .logo-title {
             font-size: 2.4rem;
             font-weight: normal;
@@ -52,20 +66,73 @@
             font-weight: bold;
         }
 
-        /* Espacio para la foto automática */
-        .logo-foto-container {
+        /* --- LOGO DEL ÁTOMO 3D HECHO EN PURO CÓDIGO (No se cae nunca) --- */
+        .atomo-3d-container {
+            position: relative;
+            width: 100px;
+            height: 90px;
             display: flex;
             align-items: center;
+            justify-content: center;
+            overflow: visible;
         }
-        .logo-foto-container img {
-            height: 90px; /* Tamaño ideal para que resalte el átomo */
-            width: auto;
-            object-fit: contain;
+
+        /* Órbitas elípticas azules cruzadas */
+        .orbita-sl {
+            position: absolute;
+            width: 100px;
+            height: 30px;
+            border: 2px solid #2a52be;
+            border-radius: 50%;
         }
+        .orbita-sl:nth-child(1) { transform: rotate(30deg); }
+        .orbita-sl:nth-child(2) { transform: rotate(-30deg); }
+        .orbita-sl:nth-child(3) { transform: rotate(90deg); height: 35px; }
+
+        /* Pequeños electrones azules en los bordes de las órbitas */
+        .electron {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background-color: #1a3c96;
+            border-radius: 50%;
+        }
+        .e1 { top: 10px; left: 15px; }
+        .e2 { bottom: 12px; right: 10px; }
+
+        /* El núcleo central agrupado en 3D (Esferas Rojas y Grises) */
+        .nucleo-sl {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Esferas con degradado radial para simular el volumen 3D */
+        .esfera {
+            position: absolute;
+            border-radius: 50%;
+            box-shadow: 1px 2px 3px rgba(0,0,0,0.3);
+        }
+        .roja {
+            background: radial-gradient(circle at 4px 4px, #ff4d4d, #990000);
+        }
+        .gris {
+            background: radial-gradient(circle at 4px 4px, #e0e0e0, #555555);
+        }
+
+        /* Posiciones exactas de las pelotitas para armar el racimo */
+        .b1 { width: 14px; height: 14px; top: 6px; left: 6px; z-index: 2; }   /* Roja */
+        .b2 { width: 15px; height: 15px; top: 4px; right: 4px; z-index: 1; }  /* Gris */
+        .b3 { width: 15px; height: 15px; bottom: 4px; left: 3px; z-index: 3; } /* Gris */
+        .b4 { width: 16px; height: 16px; bottom: 5px; right: 5px; z-index: 4; }/* Roja */
+        .b5 { width: 12px; height: 12px; top: 14px; left: 14px; z-index: 5; } /* Roja centro */
 
         /* Barra de Navegación Azul Real */
         nav {
-            background-color: #2a52be; /* El mismo azul de la foto */
+            background-color: #2a52be; 
             padding: 0 20px;
             display: flex;
         }
@@ -174,70 +241,6 @@
     <div class="wrapper">
 
         <header>
-            <div class="logo-title">Scientific Linux <span>2.0</span></div>
-            
-            <div class="logo-foto-container">
-                <img src="https://i.ibb.co/6wYgLhH/sl-logo.png" alt="Scientific Linux Original Logo 3D">
-            </div>
-        </header>
-
-        <nav>
-            <a href="#" class="active">Home</a>
-            <a href="#">About</a>
-            <a href="#">Community</a>
-            <a href="#">Documentation</a>
-            <a href="#">Development</a>
-        </nav>
-
-        <div class="main-content">
-            
-            <div class="content-left">
-                <h1>Welcome to Scientific Linux 2.0!</h1>
-                <p>Scientific Linux 2.0 es una distribución de Linux de arquitectura abierta y ligera. Este proyecto nace como una reconstrucción del sistema para ofrecer la máxima velocidad posible en computadores destinados al ámbito escolar y laboratorios científicos académicos.</p>
-                
-                <p>El núcleo de la distribución está enfocado rigurosamente en la optimización de los componentes del hardware, permitiendo que equipos con capacidades limitadas de memoria RAM (desde 1GB o 2GB) operen con total fluidez en las aulas de clase.</p>
-                
-                <ul class="info-list">
-                    <li><strong>Gestión de Memoria Avanzada:</strong> Reducción estricta de procesos en segundo plano para proteger el rendimiento del procesador.</li>
-                    <li><strong>Entorno Limpio de Software:</strong> Integración de herramientas lógicas, suites químicas y utilidades de reparación física sin paquetes comerciales redundantes.</li>
-                    <li><strong>Arquitectura Abierta:</strong> Desarrollado de forma transparente para permitir la colaboración libre en la infraestructura del sistema.</li>
-                </ul>
-            </div>
-
-            <div class="sidebar-right">
-                
-                <div class="sidebar-box">
-                    <h3 class="sidebar-title">Project Status</h3>
-                    <div class="sidebar-body">
-                        <p style="margin-top: 0;">El sistema operativo se encuentra actualmente en <strong>Fase Alfa de Desarrollo Interno</strong>.</p>
-                        <div style="font-weight: bold; margin-bottom: 4px; font-size: 0.8rem; color: #2a52be;">COMPILACIÓN CORE (v0.1):</div>
-                        <div class="progress-container">
-                            <div class="progress-bar"></div>
-                        </div>
-                        <p style="margin-bottom: 0; font-size: 0.75rem; color: #666666; margin-top: 8px;">> Depurando la base ligera para las primeras pruebas de arranque en hardware real.</p>
-                    </div>
-                </div>
-
-                <div class="sidebar-box">
-                    <h3 class="sidebar-title">Core Applications</h3>
-                    <div class="sidebar-body" style="padding: 10px 15px;">
-                        <ul style="margin: 0; padding-left: 15px; line-height: 1.6;">
-                            <li>⚙️ Sys-Repair Tool</li>
-                            <li>⚛️ Chem-Lab Suite</li>
-                            <li>🚀 Orbit-Calc Engine</li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-        <footer>
-            Distribution Architecture Directed by <strong>Deyner</strong> & <strong>Gemini</strong> | Core System v2.0 © 2026
-        </footer>
-
-    </div>
-
-</body>
-</html>
+            <div class="header-left">
+                <img src="img/sl-logo.png" alt="Logo Scientific Linux 2.0" class="main-logo-img">
+                <div class="logo-title">Scientific
