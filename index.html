@@ -2,245 +2,47 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scientific Linux 2.0 - Information Site</title>
+    <title>Scientific Linux 2.0</title>
     <style>
-        /* Estilo Clásico e Institucional (Clon de la foto) */
-        body {
-            background-color: #e1e6eb; /* Fondo gris claro exterior */
-            color: #222222;
-            font-family: Arial, Helvetica, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        /* Contenedor principal que centra la página blanca */
-        .wrapper {
-            width: 100%;
-            max-width: 1000px;
-            margin: 0 auto;
-            background-color: #ffffff; /* Fondo blanco central */
-            box-shadow: 0 0 10px rgba(0,0,0,0.15);
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* Banner Superior Blanco */
-        header {
-            background-color: #ffffff;
-            padding: 15px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #cccccc;
-        }
-
-        /* Contenedor para agrupar el logo y el texto a la izquierda */
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 15px; /* Espacio entre el logo de imagen y el texto */
-        }
-
-        /* Estilo para tu logo subido */
-        .main-logo-img {
-            height: 55px; /* Tamaño ideal para que encaje fino en el banner */
-            width: auto;
-            display: block;
-        }
-
-        .logo-title {
-            font-size: 2.4rem;
-            font-weight: normal;
-            color: #111111;
-            letter-spacing: 1.5px;
-            font-family: 'Trebuchet MS', Arial, sans-serif;
-            text-transform: uppercase;
-        }
-        .logo-title span {
-            color: #2a52be;
-            font-weight: bold;
-        }
-
-        /* --- LOGO DEL ÁTOMO 3D HECHO EN PURO CÓDIGO (No se cae nunca) --- */
-        .atomo-3d-container {
-            position: relative;
-            width: 100px;
-            height: 90px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: visible;
-        }
-
-        /* Órbitas elípticas azules cruzadas */
-        .orbita-sl {
-            position: absolute;
-            width: 100px;
-            height: 30px;
-            border: 2px solid #2a52be;
-            border-radius: 50%;
-        }
-        .orbita-sl:nth-child(1) { transform: rotate(30deg); }
-        .orbita-sl:nth-child(2) { transform: rotate(-30deg); }
-        .orbita-sl:nth-child(3) { transform: rotate(90deg); height: 35px; }
-
-        /* Pequeños electrones azules en los bordes de las órbitas */
-        .electron {
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            background-color: #1a3c96;
-            border-radius: 50%;
-        }
-        .e1 { top: 10px; left: 15px; }
-        .e2 { bottom: 12px; right: 10px; }
-
-        /* El núcleo central agrupado en 3D (Esferas Rojas y Grises) */
-        .nucleo-sl {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Esferas con degradado radial para simular el volumen 3D */
-        .esfera {
-            position: absolute;
-            border-radius: 50%;
-            box-shadow: 1px 2px 3px rgba(0,0,0,0.3);
-        }
-        .roja {
-            background: radial-gradient(circle at 4px 4px, #ff4d4d, #990000);
-        }
-        .gris {
-            background: radial-gradient(circle at 4px 4px, #e0e0e0, #555555);
-        }
-
-        /* Posiciones exactas de las pelotitas para armar el racimo */
-        .b1 { width: 14px; height: 14px; top: 6px; left: 6px; z-index: 2; }   /* Roja */
-        .b2 { width: 15px; height: 15px; top: 4px; right: 4px; z-index: 1; }  /* Gris */
-        .b3 { width: 15px; height: 15px; bottom: 4px; left: 3px; z-index: 3; } /* Gris */
-        .b4 { width: 16px; height: 16px; bottom: 5px; right: 5px; z-index: 4; }/* Roja */
-        .b5 { width: 12px; height: 12px; top: 14px; left: 14px; z-index: 5; } /* Roja centro */
-
-        /* Barra de Navegación Azul Real */
-        nav {
-            background-color: #2a52be; 
-            padding: 0 20px;
-            display: flex;
-        }
-        nav a {
-            color: #ffffff;
-            text-decoration: none;
-            padding: 12px 20px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            border-right: 1px solid #1a3c96;
-            transition: background 0.2s;
-        }
-        nav a:hover, nav a.active {
-            background-color: #1a3c96;
-        }
-
-        /* Layout de Contenido: Cuerpo y Barra Lateral */
-        .main-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            padding: 30px;
-            gap: 30px;
-            flex-grow: 1;
-        }
-
-        @media (max-width: 750px) {
-            .main-content { grid-template-columns: 1fr; }
-        }
-
-        /* Columna Izquierda (Bienvenida y Detalles) */
-        .content-left h1 {
-            color: #2a52be;
-            font-size: 1.9rem;
-            margin-top: 0;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #dddddd;
-            padding-bottom: 10px;
-        }
-        .content-left p {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: #333333;
-        }
-        .info-list {
-            margin-top: 20px;
-            padding-left: 20px;
-        }
-        .info-list li {
-            margin-bottom: 12px;
-            font-size: 0.9rem;
-            color: #444444;
-        }
-
-        /* Columna Derecha (Barra Lateral de Noticias y Estado) */
-        .sidebar-box {
-            background-color: #f5f8fa;
-            border: 1px solid #cbd5e1;
-            margin-bottom: 20px;
-        }
-        .sidebar-title {
-            background-color: #2a52be;
-            color: #ffffff;
-            padding: 8px 12px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            margin: 0;
-        }
-        .sidebar-body {
-            padding: 15px;
-            font-size: 0.85rem;
-            color: #444444;
-            line-height: 1.5;
-        }
-
-        /* Barra de progreso de desarrollo */
-        .progress-container {
-            background-color: #dddddd;
-            border-radius: 2px;
-            height: 12px;
-            width: 100%;
-            overflow: hidden;
-            margin-top: 8px;
-        }
-        .progress-bar {
-            height: 100%;
-            background-color: #2a52be;
-            width: 35%;
-        }
-
-        /* Footer Institucional */
-        footer {
-            background-color: #f0f4f8;
-            border-top: 1px solid #cbd5e1;
-            padding: 15px;
-            text-align: center;
-            font-size: 0.8rem;
-            color: #666666;
-        }
-        footer strong {
-            color: #2a52be;
-        }
+        body { background-color: #e1e6eb; font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        .wrapper { width: 100%; max-width: 1200px; margin: 0 auto; background-color: #ffffff; min-height: 100vh; display: flex; flex-direction: column; }
+        header { padding: 20px 40px; border-bottom: 1px solid #ccc; display: flex; align-items: center; justify-content: space-between; }
+        .logo-text { font-size: 2.5rem; font-weight: bold; color: #333; }
+        nav { background-color: #003399; padding: 10px 40px; display: flex; }
+        nav a { color: #ffffff; text-decoration: none; padding: 10px 15px; font-weight: bold; font-size: 0.9rem; }
+        nav a:hover { background-color: #002266; }
+        .main-container { display: grid; grid-template-columns: 2fr 1fr; padding: 40px; gap: 40px; }
+        h1 { color: #003399; }
+        .sidebar { background-color: #f0f0f0; padding: 20px; border: 1px solid #ccc; }
     </style>
 </head>
 <body>
 
-    <div class="wrapper">
+<div class="wrapper">
+    <header>
+        <div class="logo-text">SCIENTIFIC LINUX</div>
+    </header>
 
-        <header>
-            <div class="header-left">
-                <img src="img/sl-logo.png" alt="Logo Scientific Linux 2.0" class="main-logo-img">
-                <div class="logo-title">Scientific
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="community.html">Community</a>
+        <a href="documentation.html">Documentation</a>
+        <a href="downloads.html">Downloads</a>
+    </nav>
+
+    <div class="main-container">
+        <main>
+            <h1>Community</h1>
+            <p>Scientific Linux is a community project. Our official community involvement starts with the Scientific Linux Mailing Lists.</p>
+        </main>
+
+        <aside class="sidebar">
+            <h3>Scientific Linux News</h3>
+            <p>News and updates go here.</p>
+        </aside>
+    </div>
+</div>
+
+</body>
+</html>
