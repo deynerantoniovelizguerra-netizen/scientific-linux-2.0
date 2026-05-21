@@ -3,219 +3,471 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scientific Linux 2.0</title>
+    <title>Scientific Linux 2.0 - Quantum Command Center</title>
     <style>
-        /* Fondo blanco con todas las letras base en negro */
+        /* Fondo Negro Espacial con Rejilla de Ingeniería */
         body {
-            background-color: #ffffff; 
-            color: #000000; /* Letras negras para el cuerpo de la página */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #050508; 
+            background-image: linear-gradient(rgba(13, 71, 161, 0.05) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(13, 71, 161, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: #ffffff;
+            font-family: 'Segoe UI', Roboto, Helvetica, sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             min-height: 100vh;
-            text-align: center;
-            position: relative;
             box-sizing: border-box;
         }
 
-        /* Contenedor del nuevo átomo científico */
-        .esquina-atomo {
-            position: absolute;
-            top: 25px;
-            left: 25px;
+        /* Barra de Navegación de Alta Tecnología */
+        header {
+            width: 100%;
+            background-color: rgba(10, 10, 14, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid #00e5ff;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        /* Diseño del Átomo Científico en 3D con CSS Profesional */
+        .nav-izquierda {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Átomo Cuántico Orbitando */
         .atomo-profesional {
             position: relative;
-            width: 70px;
-            height: 70px;
+            width: 50px;
+            height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-
-        /* Órbitas elípticas estilizadas */
         .orbita-eliptica {
             position: absolute;
             width: 100%;
-            height: 30px;
-            border: 2px solid #0d47a1;
+            height: 20px;
+            border: 2px solid #00e5ff;
             border-radius: 50%;
         }
-
-        /* Inclinaciones para las tres órbitas */
         .orbita-eliptica:nth-child(1) { transform: rotate(30deg); }
         .orbita-eliptica:nth-child(2) { transform: rotate(90deg); }
         .orbita-eliptica:nth-child(3) { transform: rotate(150deg); }
-
-        /* Núcleo denso y brillante */
         .nucleo-cientifico {
             position: absolute;
-            width: 14px;
-            height: 14px;
-            background-color: #0d47a1;
+            width: 10px;
+            height: 10px;
+            background-color: #ffffff;
             border-radius: 50%;
-            box-shadow: 0 0 12px rgba(13, 71, 161, 0.8);
-            z-index: 5;
+            box-shadow: 0 0 15px #00e5ff;
         }
 
-        /* Título Principal en azul científico */
-        h1 {
-            font-size: 3rem;
-            margin-top: 60px;
-            margin-bottom: 5px;
-            color: #0d47a1;
-            font-weight: 700;
+        .brand-title {
+            font-size: 1.6rem;
+            font-weight: 900;
+            letter-spacing: 1.5px;
         }
+        .brand-title span { color: #00e5ff; }
 
-        /* Subtítulo en letras negras */
-        p.subtitulo {
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            color: #000000;
-            font-weight: 500;
-        }
-
-        /* Alerta de Fecha no determinada */
-        .fecha-lanzamiento {
-            font-size: 1rem;
-            background-color: #fff3e0;
-            border: 1px solid #ff9800;
-            color: #e65100;
-            padding: 6px 15px;
-            border-radius: 20px;
-            margin-bottom: 40px;
-            display: inline-block;
-            font-weight: bold;
-        }
-
-        /* Contenedor de las secciones */
-        .secciones-container {
-            display: flex;
-            gap: 30px;
-            max-width: 800px;
+        /* Contenedor de la Estructura */
+        .main-container {
+            max-width: 1200px;
             width: 90%;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 80px;
+            margin: 40px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
         }
 
-        /* Tarjetas de contenido con fondo gris muy suave */
-        .tarjeta {
-            background-color: #f8f9fa;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
+        /* Hero Nuclear */
+        .hero {
+            text-align: center;
+            padding: 50px 30px;
+            background: rgba(17, 17, 21, 0.85);
+            border: 1px solid rgba(0, 229, 255, 0.2);
+            border-radius: 16px;
+            box-shadow: 0 0 30px rgba(0, 229, 255, 0.05);
+        }
+        .hero h1 {
+            font-size: 4.5rem;
+            margin: 0 0 15px 0;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+        .hero h1 span {
+            color: #00e5ff;
+            text-shadow: 0 0 25px rgba(0, 229, 255, 0.5);
+        }
+        .hero p {
+            font-size: 1.4rem;
+            color: #cfd8dc;
+            max-width: 850px;
+            margin: 0 auto 25px auto;
+            line-height: 1.6;
+        }
+
+        /* Grid de Distribución Avanzada */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 950px) {
+            .grid-layout { grid-template-columns: 1fr; }
+        }
+
+        /* Bloques de Comando */
+        .bloque-cyber {
+            background-color: #111115;
+            border: 1px solid #1e1e24;
+            border-radius: 14px;
             padding: 30px;
-            flex: 1;
-            min-width: 250px;
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
-
-        .tarjeta:hover {
-            transform: translateY(-5px);
-            border-color: #0d47a1;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-        }
-
-        /* Títulos de tarjetas en azul para resaltar */
-        .tarjeta h2 {
+        .bloque-cyber h2 {
             font-size: 1.8rem;
             margin-top: 0;
-            color: #0d47a1;
+            border-bottom: 2px solid #1e1e24;
+            padding-bottom: 12px;
+            color: #ffffff;
         }
+        .bloque-cyber h2 span { color: #00e5ff; }
 
-        /* Descripciones de tarjetas en letras negras */
-        .tarjeta p {
-            font-size: 1rem;
-            color: #000000;
-            line-height: 1.5;
+        /* Módulos Operativos (Tarjetas) */
+        .modulos-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
         }
-
-        /* Botones de acción en modo: En procedimiento */
-        .boton-procedimiento {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
-            background-color: #eeeeee;
-            color: #000000; /* Letras negras para el botón */
-            text-decoration: none;
-            font-weight: bold;
+        .tarjeta-modulo {
+            background-color: #16161c;
+            border: 1px solid #23232a;
+            border-radius: 10px;
+            padding: 25px;
+            flex: 1;
+            min-width: 260px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+        }
+        .tarjeta-modulo:hover {
+            border-color: #00e5ff;
+            transform: translateY(-4px);
+            box-shadow: 0 5px 15px rgba(0, 229, 255, 0.1);
+        }
+        .tarjeta-modulo h3 { margin: 0 0 10px 0; color: #00e5ff; font-size: 1.4rem; }
+        .tarjeta-modulo p { margin: 0 0 20px 0; font-size: 0.95rem; color: #b0bec5; line-height: 1.6; }
+        
+        .badge-status {
+            background-color: rgba(255, 255, 255, 0.03);
+            color: #90a4ae;
+            padding: 10px;
             border-radius: 6px;
-            border: 1px dashed #757575;
-            cursor: not-allowed;
-            transition: all 0.2s;
+            font-size: 0.9rem;
+            font-weight: bold;
+            border: 1px dashed #37474f;
+            text-align: center;
         }
 
-        .tarjeta:hover .boton-procedimiento {
-            border-color: #0d47a1;
-            color: #0d47a1;
-            background-color: rgba(13, 71, 161, 0.05);
+        /* Tienda de Herramientas Científicas Integradas */
+        .app-store-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .app-item {
+            background-color: #16161c;
+            border: 1px solid #23232a;
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .app-icon {
+            width: 35px;
+            height: 35px;
+            background-color: rgba(0, 229, 255, 0.1);
+            border: 1px solid #00e5ff;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #00e5ff;
         }
 
-        /* Pie de página con letras negras */
+        /* Tabla Periódica Interactiva 3D */
+        .tabla-3d {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            perspective: 600px;
+            margin-top: 20px;
+        }
+        .elemento-quimico {
+            background: linear-gradient(135deg, #16161c, #111115);
+            border: 1px solid #23232a;
+            border-radius: 6px;
+            padding: 10px 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+            transform: rotateX(15deg) rotateY(-10deg);
+        }
+        .elemento-quimico:hover {
+            background: #00e5ff;
+            color: #000000;
+            border-color: #00e5ff;
+            transform: translateZ(20px) rotateX(0deg) rotateY(0deg);
+            box-shadow: 0 10px 20px rgba(0, 229, 255, 0.3);
+        }
+        .elem-simbolo { font-size: 1.4rem; display: block; font-weight: 900; }
+        .elem-nombre { font-size: 0.75rem; display: block; opacity: 0.8; }
+
+        /* SIMULADOR DE PARTÍCULAS (MOLÉCULA INTERACTIVA) */
+        .panel-simulador {
+            background-color: #0a0a0c;
+            border: 1px solid #23232a;
+            border-radius: 8px;
+            height: 120px;
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .panel-simulador:hover .pulsar-nucleo {
+            transform: scale(1.5);
+            background-color: #ff1744;
+            box-shadow: 0 0 25px #ff1744;
+        }
+        .pulsar-nucleo {
+            width: 20px;
+            height: 20px;
+            background-color: #00e5ff;
+            border-radius: 50%;
+            box-shadow: 0 0 15px #00e5ff;
+            transition: all 0.4s ease;
+        }
+
+        /* CONSOLA INTERACTIVA LINUX REAL (MEDIANTE JAVASCRIPT) */
+        .terminal-container {
+            background-color: #020204;
+            border: 1px solid #00e5ff;
+            border-radius: 8px;
+            padding: 15px;
+            font-family: 'Courier New', Courier, monospace;
+            box-shadow: inset 0 0 10px rgba(0, 229, 255, 0.2);
+        }
+        .terminal-log {
+            height: 120px;
+            overflow-y: auto;
+            color: #a7ffeb;
+            font-size: 0.9rem;
+            text-align: left;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+        .terminal-input-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #00e5ff;
+            font-weight: bold;
+        }
+        .terminal-input {
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            font-family: inherit;
+            font-size: 0.9rem;
+            width: 100%;
+            outline: none;
+        }
+
+        /* Pie de Página de Ingeniería */
         footer {
             margin-top: auto;
             width: 100%;
-            padding: 20px 0;
-            background-color: #f5f5f5;
-            border-top: 1px solid #e0e0e0;
-            font-size: 1rem;
-            color: #000000;
+            padding: 30px 0;
+            background-color: #0a0a0e;
+            border-top: 2px solid #1e1e24;
+            font-size: 0.95rem;
+            color: #78909c;
+            text-align: center;
         }
-
-        footer strong {
-            color: #0d47a1;
-        }
+        footer strong { color: #00e5ff; }
     </style>
 </head>
 <body>
 
-    <!-- El NUEVO Átomo Científico en la Esquina -->
-    <div class="esquina-atomo">
-        <div class="atomo-profesional">
-            <div class="orbita-eliptica"></div>
-            <div class="orbita-eliptica"></div>
-            <div class="orbita-eliptica"></div>
-            <div class="nucleo-cientifico"></div>
+    <!-- Barra de Navegación -->
+    <header>
+        <div class="nav-izquierda">
+            <div class="atomo-profesional">
+                <div class="orbita-eliptica"></div>
+                <div class="orbita-eliptica"></div>
+                <div class="orbita-eliptica"></div>
+                <div class="nucleo-cientifico"></div>
+            </div>
+            <div class="brand-title">Scientific <span>Linux</span></div>
         </div>
-    </div>
+        <div style="font-size: 0.85rem; font-weight: bold; color: #00e5ff; border: 1px solid rgba(0, 229, 255, 0.3); padding: 6px 14px; border-radius: 4px; background-color: rgba(0, 229, 255, 0.05);">CORE_ONLINE</div>
+    </header>
 
-    <!-- Título del Sistema Operativo -->
-    <h1>Scientific Linux 2.0</h1>
-    <p class="subtitulo">El sistema definitivo para la ciencia y el aprendizaje</p>
-    
-    <!-- Indicador de Fecha No Determinada -->
-    <div class="fecha-lanzamiento">
-        Lanzamiento: Fecha no determinada
-    </div>
-
-    <!-- Las dos partes del proyecto -->
-    <div class="secciones-container">
+    <!-- Contenedor Principal -->
+    <div class="main-container">
         
-        <!-- Parte 1: Para Estudiantes -->
-        <div class="tarjeta">
-            <h2>Para Estudiantes</h2>
-            <p>Explora herramientas educativas, aplicaciones ligeras y todo lo que necesitas para tus clases y proyectos técnicos sin forzar tu computadora.</p>
-            <span class="boton-procedimiento">En procedimiento</span>
+        <!-- Bloque Principal (Hero) -->
+        <div class="hero">
+            <h1>Scientific Linux <span>2.0</span></h1>
+            <p>Diseñando el kernel definitivo para potenciar la infraestructura educativa de los estudiantes y el procesamiento informático de laboratorios científicos.</p>
+            <span style="font-size: 0.9rem; background-color: rgba(0, 229, 255, 0.1); border: 1px solid #00e5ff; padding: 6px 16px; border-radius: 20px; color: #00e5ff; font-weight: bold;">PROYECTO DE ARQUITECTURA ABIERTA</span>
         </div>
 
-        <!-- Parte 2: Para Científicos -->
-        <div class="tarjeta">
-            <h2>Para Científicos</h2>
-            <p>Accede a herramientas avanzadas de desarrollo, análisis de datos y entornos optimizados para investigación científica de alto nivel.</p>
-            <span class="boton-procedimiento">En procedimiento</span>
+        <!-- Panel de Control Combinado -->
+        <div class="grid-layout">
+            
+            <!-- Bloques de la Izquierda -->
+            <div style="display: flex; flex-direction: column; gap: 35px;">
+                
+                <!-- Ediciones del OS -->
+                <div class="bloque-cyber">
+                    <h2>Módulos del <span>Sistema</span></h2>
+                    <div class="modulos-container">
+                        <div class="tarjeta-modulo">
+                            <div>
+                                <h3>Edición Estudiantes</h3>
+                                <p>Ingeniería de optimización extrema. Remueve procesos pesados innecesarios para garantizar velocidad de procesamiento fluida en hardware de recursos limitados.</p>
+                            </div>
+                            <span class="badge-status">En procedimiento</span>
+                        </div>
+                        <div class="tarjeta-modulo">
+                            <div>
+                                <h3>Edición Científicos</h3>
+                                <p>Módulo de alto rendimiento estructurado con compiladores limpios, librerías físicas integradas y scripts avanzados de automatización matemática.</p>
+                            </div>
+                            <span class="badge-status">En procedimiento</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ideas Gemini: Repositorio Técnico Pre-instalado -->
+                <div class="bloque-cyber">
+                    <h2>Software Integrado de <span>Fábrica</span></h2>
+                    <p style="color: #b0bec5; font-size: 0.95rem; margin-top: 0;">Herramientas clave planeadas para correr de forma nativa en el sistema:</p>
+                    <div class="app-store-preview">
+                        <div class="app-item"><div class="app-icon">🛠️</div><div><strong>Sys-Repair</strong><br><span style="font-size:0.8rem;color:#78909c;">Diagnóstico de Laptops</span></div></div>
+                        <div class="app-item"><div class="app-icon">⚛️</div><div><strong>Chem-Lab</strong><br><span style="font-size:0.8rem;color:#78909c;">Modelado Atómico</span></div></div>
+                        <div class="app-item"><div class="app-icon">🚀</div><div><strong>Orbit-Calc</strong><br><span style="font-size:0.8rem;color:#78909c;">Cálculos de Balística</span></div></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bloques de la Derecha -->
+            <div style="display: flex; flex-direction: column; gap: 35px;">
+                
+                <!-- Tabla Periódica Interactiva -->
+                <div class="bloque-cyber" style="text-align: center;">
+                    <h2>Física de <span>Materiales</span></h2>
+                    <div class="tabla-3d">
+                        <div class="elemento-quimico"><span class="elem-simbolo">H</span><span class="elem-nombre">Hidrógeno</span></div>
+                        <div class="elemento-quimico" style="grid-column: 4;"><span class="elem-simbolo">He</span><span class="elem-nombre">Helio</span></div>
+                        <div class="elemento-quimico"><span class="elem-simbolo">Li</span><span class="elem-nombre">Litio</span></div>
+                        <div class="elemento-quimico"><span class="elem-simbolo">Be</span><span class="elem-nombre">Berilio</span></div>
+                        <div class="elemento-quimico"><span class="elem-simbolo">B</span><span class="elem-nombre">Boro</span></div>
+                        <div class="elemento-quimico"><span class="elem-simbolo">C</span><span class="elem-nombre">Carbono</span></div>
+                        <div class="elemento-quimico"><span class="elem-simbolo">N</span><span class="elem-nombre">Nitrógeno</span></div>
+                        <div class="elemento-quimico"><span class="elem-simbolo">O</span><span class="elem-nombre">Oxígeno</span></div>
+                    </div>
+                </div>
+
+                <!-- Ideas Gemini: Simulador Cuántico -->
+                <div class="bloque-cyber" style="text-align: center;">
+                    <h2>Simulador de <span>Núcleo</span></h2>
+                    <div class="panel-simulador" onclick="alert('Simulación Cuántica Iniciada: Núcleo Estable a 0.01 Kelvin.')">
+                        <div class="pulsar-nucleo"></div>
+                    </div>
+                    <p style="font-size: 0.8rem; color: #78909c; margin-top: 10px; margin-bottom: 0;">Haz clic en el cuadro para ejecutar escaneo térmico</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Ideas Gemini: Terminal Linux Interactiva Real -->
+        <div class="bloque-cyber">
+            <h2>Consola de Diagnóstico <span>scientific-linux-sh</span></h2>
+            <div class="terminal-container">
+                <div class="terminal-log" id="termLog">
+                    Scientific Linux v2.0 Kernel Diagnostic Shell<br>
+                    Escribe 'ayuda' para ver los comandos de diagnóstico disponibles...<br><br>
+                    user@scientific_os:~$ 
+                </div>
+                <div class="terminal-input-row">
+                    <span>$</span>
+                    <input type="text" class="terminal-input" id="termInput" autofocus autocomplete="off" onkeydown="procesarComando(event)">
+                </div>
+            </div>
         </div>
 
     </div>
 
-    <!-- Créditos al final de la página -->
+    <!-- Script de Programación de la Terminal -->
+    <script>
+        function procesarComando(e) {
+            if (e.key === 'Enter') {
+                const input = document.getElementById('termInput');
+                const log = document.getElementById('termLog');
+                const cmd = input.value.trim().toLowerCase();
+                
+                let respuesta = "<br>";
+                
+                if (cmd === 'ayuda') {
+                    respuesta += "Comandos del sistema disponibles:<br> - <strong>sistema</strong>: Muestra el estado del OS.<br> - <strong>desarrolladores</strong>: Muestra el equipo de ingeniería.<br> - <strong>limpiar</strong>: Resetea el historial de la terminal.";
+                } else if (cmd === 'sistema') {
+                    respuesta += "ESTADO: Compilando paquetes base ligeros.<br>EDICIONES: Estudiantes (Estable) | Científicos (Alpha).<br>PROCESADOR REQUERIDO: Optimizado para funcionar desde 1GB de RAM.";
+                } else if (cmd === 'desarrolladores') {
+                    respuesta += "DIRECCIÓN DE ARQUITECTURA: Diseñado de principio a fin por Deyner & Gemini.";
+                } else if (cmd === 'limpiar') {
+                    log.innerHTML = "user@scientific_os:~$ ";
+                    input.value = '';
+                    return;
+                } else if (cmd === '') {
+                    respuesta = "";
+                } else {
+                    respuesta += "Comando '" + cmd + "' no reconocido por el sistema de Scientific Linux.";
+                }
+                
+                log.innerHTML += cmd + respuesta + "<br><br>user@scientific_os:~$ ";
+                input.value = '';
+                log.scrollTop = log.scrollHeight;
+            }
+        }
+    </script>
+
+    <!-- Pie de Página -->
     <footer>
-        Desarrollado por <strong>Deyner</strong> & <strong>Gemini</strong>
+        Infraestructura y Lógica de Red Desarrollada por <strong>Deyner</strong> & <strong>Gemini</strong> | © Centro de Investigación 2026
     </footer>
 
 </body>
