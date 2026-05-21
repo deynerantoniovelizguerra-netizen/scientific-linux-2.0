@@ -3,36 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scientific Linux 2.0 - Quantum Environment</title>
+    <title>Scientific Linux 2.0 - Quantum Nexus</title>
     <style>
         /* Base Cyberpunk Oscura */
         body {
-            background-color: #050508; 
-            background-image: linear-gradient(rgba(0, 229, 255, 0.03) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(0, 229, 255, 0.03) 1px, transparent 1px);
-            background-size: 25px 25px;
+            background-color: #030306; 
+            background-image: radial-gradient(rgba(0, 229, 255, 0.04) 1px, transparent 1px);
+            background-size: 30px 30px;
             color: #ffffff;
             font-family: 'Segoe UI', Roboto, sans-serif;
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow-x: hidden;
+            display: flex; flex-direction: column;
+            overflow: hidden;
+            user-select: none;
         }
 
-        /* Header de Comando */
+        /* Header Aeroespacial */
         header {
             width: 100%;
-            background-color: rgba(10, 10, 14, 0.9);
-            backdrop-filter: blur(8px);
+            background-color: rgba(6, 6, 10, 0.95);
+            backdrop-filter: blur(12px);
             border-bottom: 2px solid #00e5ff;
-            padding: 15px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-sizing: border-box;
-            z-index: 100;
+            padding: 12px 30px;
+            display: flex; justify-content: space-between; align-items: center;
+            box-sizing: border-box; z-index: 100;
         }
 
         .nav-izquierda { display: flex; align-items: center; gap: 15px; }
@@ -44,256 +39,369 @@
         .orbita-eliptica {
             position: absolute; width: 100%; height: 16px;
             border: 2px solid #00e5ff; border-radius: 50%;
+            animation: orbitar 4s linear infinite;
         }
-        .orbita-eliptica:nth-child(1) { transform: rotate(30deg); }
-        .orbita-eliptica:nth-child(2) { transform: rotate(90deg); }
-        .orbita-eliptica:nth-child(3) { transform: rotate(150deg); }
+        .orbita-eliptica:nth-child(1) { transform: rotate(30deg); animation-delay: 0s; }
+        .orbita-eliptica:nth-child(2) { transform: rotate(90deg); animation-delay: 1.3s; }
+        .orbita-eliptica:nth-child(3) { transform: rotate(150deg); animation-delay: 2.6s; }
+        @keyframes orbitar { 0% { transform: rotate(var(--r, 30deg)) invert(0); } 50% { opacity: 0.4; } 100% { transform: rotate(var(--r, 30deg)); } }
+        
         .nucleo-cientifico {
             position: absolute; width: 8px; height: 8px;
-            background-color: #ffffff; border-radius: 50%; box-shadow: 0 0 10px #00e5ff;
+            background-color: #ffffff; border-radius: 50%; box-shadow: 0 0 12px #00e5ff;
         }
 
-        .brand-title { font-size: 1.4rem; font-weight: 900; letter-spacing: 1px; }
-        .brand-title span { color: #00e5ff; }
+        .brand-title { font-size: 1.4rem; font-weight: 900; letter-spacing: 2px; text-transform: uppercase;}
+        .brand-title span { color: #00e5ff; text-shadow: 0 0 10px rgba(0,229,255,0.5); }
 
-        /* Botón de Intercambio de Entorno (Idea Gemini) */
         .btn-toggle-entorno {
-            background: linear-gradient(135deg, #00e5ff, #00b0ff);
-            color: #000000;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 6px;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
-            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #00e5ff, #00838f);
+            color: #000000; border: none; padding: 10px 22px; border-radius: 6px;
+            font-weight: 900; cursor: pointer; letter-spacing: 0.5px;
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.3); transition: all 0.3s ease;
         }
-        .btn-toggle-entorno:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px #00e5ff;
-        }
+        .btn-toggle-entorno:hover { transform: scale(1.05); box-shadow: 0 0 25px #00e5ff; }
 
         /* VISTA 1: PORTAL WEB SERIO */
-        .portal-view { width: 90%; max-width: 1200px; margin: 40px auto; display: flex; flex-direction: column; gap: 35px; }
+        .portal-view { width: 90%; max-width: 1200px; margin: 40px auto; display: flex; flex-direction: column; gap: 35px; overflow-y: auto;}
         
         .hero {
-            text-align: center; padding: 45px; background: rgba(17, 17, 21, 0.85);
+            text-align: center; padding: 50px; background: rgba(12, 12, 18, 0.85);
             border: 1px solid rgba(0, 229, 255, 0.2); border-radius: 16px;
+            box-shadow: inset 0 0 20px rgba(0, 229, 255, 0.05);
         }
-        .hero h1 { font-size: 3.8rem; margin: 0 0 10px 0; font-weight: 900; }
-        .hero h1 span { color: #00e5ff; text-shadow: 0 0 20px rgba(0, 229, 255, 0.4); }
-        .hero p { font-size: 1.3rem; color: #cfd8dc; max-width: 800px; margin: 0 auto 20px auto; }
+        .hero h1 { font-size: 4rem; margin: 0 0 10px 0; font-weight: 900; }
+        .hero h1 span { color: #00e5ff; }
+        .hero p { font-size: 1.3rem; color: #b0bec5; max-width: 800px; margin: 0 auto; }
 
         .grid-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; }
-        @media (max-width: 900px) { .grid-layout { grid-template-columns: 1fr; } }
-
-        .bloque-cyber { background-color: #111115; border: 1px solid #1e1e24; border-radius: 14px; padding: 25px; }
-        .bloque-cyber h2 { font-size: 1.6rem; margin-top: 0; border-bottom: 2px solid #1e1e24; padding-bottom: 10px; }
+        .bloque-cyber { background-color: #0c0c12; border: 1px solid #1e1e26; border-radius: 14px; padding: 25px; }
+        .bloque-cyber h2 { font-size: 1.6rem; margin-top: 0; border-bottom: 2px solid #1e1e26; padding-bottom: 10px; }
         .bloque-cyber h2 span { color: #00e5ff; }
 
         .modulos-container { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 15px; }
-        .tarjeta-modulo {
-            background-color: #16161c; border: 1px solid #23232a; border-radius: 10px;
-            padding: 20px; flex: 1; min-width: 250px;
-        }
+        .tarjeta-modulo { background-color: #12121a; border: 1px solid #1e1e26; border-radius: 10px; padding: 20px; flex: 1; }
         .tarjeta-modulo h3 { color: #00e5ff; margin-top: 0; }
 
-        /* VISTA 2: ESCRITORIO VIRTUAL LINUX (Idea Gemini) */
+        /* VISTA 2: ESCRITORIO VIRTUAL AVANZADO */
         .desktop-view {
-            display: none; /* Oculto al inicio */
-            flex-grow: 1;
-            position: relative;
-            padding: 30px;
-            box-sizing: border-box;
+            display: none; flex-grow: 1; position: relative; padding: 30px;
+            box-sizing: border-box; background-color: #020204;
         }
 
-        .desktop-icons { display: flex; flex-direction: column; gap: 25px; width: 100px; }
-        .icon {
-            display: flex; flex-direction: column; align-items: center; text-align: center;
-            cursor: pointer; font-size: 0.85rem; font-weight: bold; text-shadow: 1px 1px 3px #000;
+        /* Efecto de Datos en Cascada (Idea Gemini) */
+        .matrix-bg {
+            position: absolute; top:0; left:0; width:100%; height:100%;
+            opacity: 0.03; font-family: monospace; font-size: 11px; color: #00e5ff;
+            pointer-events: none; overflow: hidden; line-height: 1.2;
         }
+
+        .desktop-icons { display: flex; flex-direction: column; gap: 25px; width: 110px; z-index: 5; }
+        .icon { display: flex; flex-direction: column; align-items: center; text-align: center; cursor: pointer; }
         .icon-img {
-            width: 50px; height: 50px; background-color: #111115; border: 1px solid #00e5ff;
-            border-radius: 10px; display: flex; align-items: center; justify-content: center;
-            font-size: 1.8rem; margin-bottom: 8px; transition: transform 0.2s;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            width: 55px; height: 55px; background-color: #0c0c12; border: 1px solid rgba(0, 229, 255, 0.4);
+            border-radius: 12px; display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem; margin-bottom: 6px; transition: all 0.2s ease;
         }
-        .icon:hover .icon-img { transform: scale(1.1); background-color: #00e5ff; color: #000; }
+        .icon:hover .icon-img { transform: scale(1.1) translateY(-2px); border-color: #00e5ff; box-shadow: 0 0 15px rgba(0, 229, 255, 0.3); }
+        .icon span { font-size: 0.8rem; font-weight: bold; letter-spacing: 0.5px; }
 
-        /* VENTANAS FLOTANTES COPIADAS DE SISTEMAS OPERATIVOS REALES */
+        /* SISTEMA DE VENTANAS DINÁMICAS DRAGGABLE */
         .window {
-            position: absolute; top: 150px; left: 200px; width: 450px;
-            background-color: #0c0c10; border: 2px solid #1e1e24; border-radius: 8px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.7); display: none; flex-direction: column;
+            position: absolute; top: 120px; left: 220px; width: 460px;
+            background-color: rgba(10, 10, 16, 0.95); backdrop-filter: blur(10px);
+            border: 1px solid #252530; border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8); display: none; flex-direction: column;
             z-index: 10; overflow: hidden;
         }
         .window-header {
-            background-color: #14141a; padding: 10px 15px; display: flex;
-            justify-content: space-between; align-items: center; border-bottom: 1px solid #23232a;
-            cursor: move; user-select: none;
+            background-color: #12121a; padding: 10px 15px; display: flex;
+            justify-content: space-between; align-items: center; border-bottom: 1px solid #1e1e26;
+            cursor: move;
         }
-        .window-title { font-weight: bold; font-size: 0.9rem; color: #00e5ff; }
-        .window-close { background: #ff1744; border: none; width: 12px; height: 12px; border-radius: 50%; cursor: pointer; }
+        .window-title { font-weight: bold; font-size: 0.85rem; color: #00e5ff; letter-spacing: 0.5px; }
+        .window-controls { display: flex; gap: 8px; }
+        .win-btn { width: 12px; height: 12px; border-radius: 50%; border: none; cursor: pointer; }
+        .win-close { background-color: #ff1744; }
 
-        .window-body { padding: 15px; color: #cfd8dc; font-size: 0.95rem; overflow-y: auto; max-height: 300px; }
+        .window-body { padding: 15px; color: #d1d1d6; font-size: 0.9rem; max-height: 320px; overflow-y: auto; }
 
-        /* Terminal integrada en ventana */
-        .term-box { font-family: monospace; background-color: #020204; padding: 10px; border-radius: 4px; color: #a7ffeb; }
-        
-        /* Monitores de Rendimiento de RAM/CPU */
-        .bar-container { background-color: #1a1a24; border-radius: 5px; height: 15px; width: 100%; margin: 8px 0 15px 0; overflow: hidden; }
-        .bar-fill { height: 100%; background: linear-gradient(90deg, #00e5ff, #00e676); width: 22%; } /* Simula consumo ultra bajo */
+        /* Telemetría y Gráficos Falsos */
+        .bar-container { background-color: #161622; border-radius: 4px; height: 12px; width: 100%; margin: 6px 0 12px 0; }
+        .bar-fill { height: 100%; background: linear-gradient(90deg, #00e5ff, #00e676); width: 0%; transition: width 2s ease-in-out; }
+
+        /* Radar Espacial de Satélites (Idea Gemini) */
+        .radar-box {
+            width: 100%; height: 160px; background: #07070a; border: 1px solid #1e1e26;
+            border-radius: 6px; position: relative; overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .radar-line {
+            position: absolute; width: 100%; height: 100%;
+            background: linear-gradient(0deg, transparent 50%, rgba(0, 229, 255, 0.15) 50%);
+            animation: barrido 3s linear infinite; pointer-events: none;
+        }
+        @keyframes barrido { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .radar-dot {
+            position: absolute; width: 6px; height: 6px; background-color: #ff1744;
+            border-radius: 50%; box-shadow: 0 0 10px #ff1744; animation: parpadeo 1.5s infinite;
+        }
+        @keyframes parpadeo { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+
+        /* Audio Player Cuántico (Idea Gemini) */
+        .audio-controls { display: flex; align-items: center; justify-content: center; gap: 15px; padding: 10px 0; }
+        .btn-audio {
+            background-color: #12121a; border: 1px solid #00e5ff; color: #00e5ff;
+            padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: bold;
+        }
+        .btn-audio:hover { background-color: #00e5ff; color: #000; }
 
         /* Footer */
         footer {
-            margin-top: auto; width: 100%; padding: 20px 0; background-color: #0a0a0e;
-            border-top: 2px solid #1e1e24; font-size: 0.9rem; color: #78909c; text-align: center;
-            z-index: 90;
+            margin-top: auto; width: 100%; padding: 15px 0; background-color: #06060a;
+            border-top: 1px solid #1e1e26; font-size: 0.85rem; color: #5c6bc0; text-align: center; z-index: 90;
         }
         footer strong { color: #00e5ff; }
     </style>
 </head>
 <body>
 
-    <!-- Header Estructurado -->
+    <!-- Header Central de Operaciones -->
     <header>
         <div class="nav-izquierda">
             <div class="atomo-profesional">
-                <div class="orbita-eliptica"></div><div class="orbita-eliptica"></div><div class="orbita-eliptica"></div><div class="nucleo-cientifico"></div>
+                <div class="orbita-eliptica" style="--r: 30deg"></div>
+                <div class="orbita-eliptica" style="--r: 90deg"></div>
+                <div class="orbita-eliptica" style="--r: 150deg"></div>
+                <div class="nucleo-cientifico"></div>
             </div>
             <div class="brand-title">Scientific <span>Linux</span></div>
         </div>
-        <!-- Botón de Control de Entorno -->
-        <button class="btn-toggle-entorno" id="btnEnv" onclick="cambiarEntorno()">Entrar al Escritorio Virtual</button>
+        
+        <div id="telemetriaMision" style="font-family: monospace; font-size: 0.8rem; color: #00e5ff; display:none; gap: 20px;">
+            <span>TERRA_TEMP: 24°C</span>
+            <span>MARS_SOL: -60°C</span>
+            <span>ORBIT: ALIGNED</span>
+        </div>
+
+        <button class="btn-toggle-entorno" id="btnEnv" onclick="cambiarEntorno()">Inicializar Escritorio Virtual</button>
     </header>
 
-    <!-- ENTORNOS DE LA PÁGINA -->
-    
-    <!-- VISTA 1: El Portal de Información Corporativo -->
+    <!-- INTERFAZ 1: PORTAL DE INFORMACIÓN -->
     <div class="portal-view" id="portalView">
         <div class="hero">
             <h1>Scientific Linux <span>2.0</span></h1>
-            <p>Rediseñando el kernel de distribución ligera para dar la máxima velocidad a los computadores de estudiantes y laboratorios científicos.</p>
+            <p>Arquitectura de código abierto optimizada para el desarrollo académico, modelado matemático y la reactivación de hardware obsoleto.</p>
         </div>
 
         <div class="grid-layout">
             <div class="bloque-cyber">
-                <h2>Arquitectura de <span>Distribución</span></h2>
+                <h2>Núcleos de <span>Compilación</span></h2>
                 <div class="modulos-container">
                     <div class="tarjeta-modulo">
-                        <h3>Módulo Alumnos</h3>
-                        <p>Diseño sin dependencias pesadas. Ideal para revivir equipos de 1GB o 2GB de RAM con total fluidez.</p>
+                        <h3>Light Student OS</h3>
+                        <p>Diseño sin sobrecarga de interfaz. Consume menos de 250MB de RAM en arranque estático.</p>
                     </div>
                     <div class="tarjeta-modulo">
-                        <h3>Módulo Científico</h3>
-                        <p>Optimizado para cálculos numéricos avanzados, simulación atómica y desarrollo lógico.</p>
+                        <h3>Scientific Lab Suite</h3>
+                        <p>Librerías numéricas pre-cargadas para cómputo de física de partículas y compuestos químicos.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="bloque-cyber" style="text-align: center;">
-                <h2>Acceso del <span>Núcleo</span></h2>
-                <p>Usa el botón superior para cargar el entorno gráfico interactivo completo y probar el prototipo virtual.</p>
+            <div class="bloque-cyber">
+                <h2>Instrucciones</h2>
+                <p style="color: #b0bec5; font-size: 0.95rem; line-height: 1.5;">Haz clic en el botón superior para compilar la interfaz de comandos y ejecutar el Escritorio de Pruebas Cuánticas.</p>
             </div>
         </div>
     </div>
 
-    <!-- VISTA 2: El Escritorio de Linux Simulado -->
+    <!-- INTERFAZ 2: ESCRITORIO VIRTUAL DE ALTA TECNOLOGÍA -->
     <div class="desktop-view" id="desktopView">
+        
+        <!-- Cascada de código de fondo -->
+        <div class="matrix-bg" id="matrixBg"></div>
+
+        <!-- Iconos del Sistema -->
         <div class="desktop-icons">
-            <div class="icon" onclick="abrirVentana('winTerminal')">
-                <div class="icon-img">💻</div>
-                <span>Terminal.sh</span>
-            </div>
-            <div class="icon" onclick="abrirVentana('winSys')">
+            <div class="icon" onclick="abrirVentana('winSpecs')">
                 <div class="icon-img">📊</div>
-                <span>Recursos.sys</span>
+                <span>Telemetría.sys</span>
+            </div>
+            <div class="icon" onclick="abrirVentana('winRadar')">
+                <div class="icon-img">📡</div>
+                <span>Astro-Map.sys</span>
+            </div>
+            <div class="icon" onclick="abrirVentana('winAudio')">
+                <div class="icon-img">🔊</div>
+                <span>Quantum-Audio.sh</span>
             </div>
         </div>
 
-        <!-- VENTANA FLOTANTE 1: TERMINAL LINUX -->
-        <div class="window" id="winTerminal">
-            <div class="window-header" onmousedown="iniciarArrastre(event, 'winTerminal')">
-                <span class="window-title">scientific-linux@sh</span>
-                <button class="window-close" onclick="cerrarVentana('winTerminal')"></button>
+        <!-- VENTANA 1: MONITOR DE TELEMETRÍA -->
+        <div class="window" id="winSpecs">
+            <div class="window-header" onmousedown="iniciarArrastre(event, 'winSpecs')">
+                <span class="window-title">RENDIMIENTO DE RECURSOS</span>
+                <div class="window-controls"><button class="win-btn win-close" onclick="cerrarVentana('winSpecs')"></button></div>
             </div>
             <div class="window-body">
-                <div class="term-box">
-                    scientific-kernel v2.0-light<br>
-                    $ status_check: OK<br>
-                    $ ram_usage: LOW_MODE ACTIVATED<br>
-                    $ dev_team: Deyner & Gemini
+                <label>Optimización de Memoria RAM (Scientific Engine):</label>
+                <div class="bar-container"><div class="bar-fill" id="ramBar" style="width: 22%;"></div></div>
+                
+                <label>Frecuencia de Cómputo del Procesador:</label>
+                <div class="bar-container"><div class="bar-fill" id="cpuBar" style="width: 14%;"></div></div>
+                <div style="font-family: monospace; font-size: 0.8rem; color: #00e676;">> CONTROLADOR DE HARDWARE: ESTABLE (BAJO RECURSO)</div>
+            </div>
+        </div>
+
+        <!-- VENTANA 2: RADAR DE SATÉLITES -->
+        <div class="window" id="winRadar" style="left: 400px; top: 180px;">
+            <div class="window-header" onmousedown="iniciarArrastre(event, 'winRadar')">
+                <span class="window-title">MONITOREO DE SATÉLITES ORBITALES</span>
+                <div class="window-controls"><button class="win-btn win-close" onclick="cerrarVentana('winRadar')"></button></div>
+            </div>
+            <div class="window-body" style="text-align: center;">
+                <div class="radar-box">
+                    <div class="radar-line"></div>
+                    <div class="radar-dot" style="top: 40px; left: 120px;"></div>
+                    <div class="radar-dot" style="top: 100px; left: 280px; animation-delay: 0.7s;"></div>
+                </div>
+                <p id="coordenadasTxt" style="font-family: monospace; font-size: 0.8rem; color: #00e5ff; margin-top: 10px;">LAT: 10.5000° N | LON: -66.9167° W</p>
+            </div>
+        </div>
+
+        <!-- VENTANA 3: REPRODUCTOR DE FRECUENCIA CUÁNTICA -->
+        <div class="window" id="winAudio" style="left: 250px; top: 340px; width: 380px;">
+            <div class="window-header" onmousedown="iniciarArrastre(event, 'winAudio')">
+                <span class="window-title">FRECUENCIAS DEL NÚCLEO</span>
+                <div class="window-controls"><button class="win-btn win-close" onclick="cerrarVentana('winAudio')"></button></div>
+            </div>
+            <div class="window-body" style="text-align: center;">
+                <p style="font-size: 0.85rem; margin-bottom: 10px;">Generador de ruido blanco de laboratorio para concentración de código:</p>
+                <div class="audio-controls">
+                    <button class="btn-audio" onclick="controlarAudio(true)">ENCENDER NÚCLEO</button>
+                    <button class="btn-audio" style="border-color:#ff1744; color:#ff1744;" onclick="controlarAudio(false)">APAGAR</button>
                 </div>
             </div>
         </div>
 
-        <!-- VENTANA FLOTANTE 2: MONITOREO DE SISTEMA -->
-        <div class="window" id="winSys" style="left: 300px; top: 250px;">
-            <div class="window-header" onmousedown="iniciarArrastre(event, 'winSys')">
-                <span class="window-title">Monitor de Rendimiento Avanzado</span>
-                <button class="window-close" onclick="cerrarVentana('winSys')"></button>
-            </div>
-            <div class="window-body">
-                <label>Uso del Procesador (CPU Core): 15%</label>
-                <div class="bar-container"><div class="bar-fill" style="width: 15%;"></div></div>
-                
-                <label>Memoria RAM Asignada: 220MB / 1024MB</label>
-                <div class="bar-container"><div class="bar-fill" style="width: 22%;"></div></div>
-                <p style="font-size: 0.8rem; color: #00e5ff; margin: 0;">✔ Optimización Extrema detectada para computadoras escolares.</p>
-            </div>
-        </div>
     </div>
 
-    <!-- Footer Corporativo -->
+    <!-- Pie de Página Dinámico -->
     <footer>
-        Infraestructura de Sistemas e Interfaces Diseñada por <strong>Deyner</strong> & <strong>Gemini</strong> | © 2026
+        Infraestructura Cuántica Desarrollada en Sinergia por <strong>Deyner</strong> & <strong>Gemini</strong> | Proyecto de Ingeniería 2026
     </footer>
 
-    <!-- LÓGICA DE CONTROL (JAVASCRIPT) -->
+    <!-- LOGICA DE CONTROL DE ALTA CREATIVIDAD (JAVASCRIPT) -->
     <script>
-        // Cambiar entre Portal Web y Escritorio Virtual
         let modoEscritorio = false;
+        let audioCtx = null;
+        let oscillator = null;
+
+        // Cambiar entre Portal Web e Interfaz Gráfica
         function cambiarEntorno() {
             const portal = document.getElementById('portalView');
             const desktop = document.getElementById('desktopView');
             const btn = document.getElementById('btnEnv');
+            const telemetria = document.getElementById('telemetriaMision');
 
             if (!modoEscritorio) {
                 portal.style.display = 'none';
                 desktop.style.display = 'flex';
-                btn.innerText = "Volver al Portal Web";
+                telemetria.style.display = 'flex';
+                btn.innerText = "Apagar Entorno Gráfico";
+                generarDatosMatrix();
+                animarBarras();
                 modoEscritorio = true;
             } else {
                 portal.style.display = 'flex';
                 desktop.style.display = 'none';
-                btn.innerText = "Entrar al Escritorio Virtual";
+                telemetria.style.display = 'none';
+                btn.innerText = "Inicializar Escritorio Virtual";
+                controlarAudio(false);
                 modoEscritorio = false;
             }
         }
 
-        // Abrir y Cerrar Ventanas Flotantes
-        function abrirVentana(id) {
-            document.getElementById(id).style.display = 'flex';
-        }
-        function cerrarVentana(id) {
-            document.getElementById(id).style.display = 'none';
-        }
+        function abrirVentana(id) { document.getElementById(id).style.display = 'flex'; }
+        function cerrarVentana(id) { document.getElementById(id).style.display = 'none'; }
 
-        // Lógica para arrastrar ventanas reales por la pantalla
+        // Sistema para arrastrar ventanas reales
         function iniciarArrastre(e, idVentana) {
             const ventana = document.getElementById(idVentana);
             let posX = e.clientX - ventana.offsetLeft;
             let posY = e.clientY - ventana.offsetTop;
-
-            function moverVentana(e) {
+            
+            function mover(e) {
                 ventana.style.left = (e.clientX - posX) + 'px';
                 ventana.style.top = (e.clientY - posY) + 'px';
             }
-
-            document.addEventListener('mousemove', moverVentana);
+            document.addEventListener('mousemove', mover);
             document.addEventListener('mouseup', function() {
-                document.removeEventListener('mousemove', moverVentana);
+                document.removeEventListener('mousemove', mover);
             }, { once: true });
+        }
+
+        // Idea Gemini: Generar flujo de datos Matrix de fondo de forma automatizada
+        function generarDatosMatrix() {
+            const bg = document.getElementById('matrixBg');
+            if(bg.innerHTML !== "") return; 
+            let codigoHtml = "";
+            for (let i = 0; i < 25; i++) {
+                let linea = "";
+                for(let j=0; j<80; j++){ linea += Math.round(Math.random()); }
+                codigoHtml += linea + "<br>";
+            }
+            bg.innerHTML = codigoHtml;
+            
+            setInterval(() => {
+                if(!modoEscritorio) return;
+                let lineas = bg.innerHTML.split("<br>");
+                lineas.pop();
+                lineas.shift();
+                let nuevaLinea = "";
+                for(let j=0; j<80; j++){ nuevaLinea += Math.round(Math.random()); }
+                lineas.push(nuevaLinea);
+                bg.innerHTML = lineas.join("<br>") + "<br>";
+            }, 300);
+        }
+
+        // Simulación de fluctuación de barras de hardware
+        function animarBarras() {
+            setInterval(() => {
+                if(!modoEscritorio) return;
+                document.getElementById('ramBar').style.width = (20 + Math.floor(Math.random() * 5)) + "%";
+                document.getElementById('cpuBar').style.width = (10 + Math.floor(Math.random() * 8)) + "%";
+                
+                // Variación aleatoria de coordenadas satelitales
+                let lat = (10.5000 + (Math.random() - 0.5) * 0.02).toFixed(4);
+                let lon = (-66.9167 + (Math.random() - 0.5) * 0.02).toFixed(4);
+                document.getElementById('coordenadasTxt').innerText = `LAT: ${lat}° N | LON: ${lon}° W`;
+            }, 2000);
+        }
+
+        // Idea Gemini: Sintetizador de audio matemático nativo (Ruido de Procesador Cuántico)
+        function controlarAudio(encender) {
+            if (encender) {
+                if (audioCtx) return;
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                oscillator = audioCtx.createOscillator();
+                let gainNode = audioCtx.createGain();
+                
+                oscillator.type = 'sine';
+                oscillator.frequency.setValueAtTime(85, audioCtx.currentTime); // Frecuencia baja simulando zumbido de servidor
+                gainNode.gain.setValueAtTime(0.08, audioCtx.currentTime); // Volumen muy bajo para que sea agradable
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+                oscillator.start();
+            } else {
+                if (!audioCtx) return;
+                oscillator.stop();
+                audioCtx.close();
+                audioCtx = null;
+                oscillator = null;
+            }
         }
     </script>
 </body>
