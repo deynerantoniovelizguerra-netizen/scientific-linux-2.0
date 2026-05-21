@@ -3,338 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scientific Linux 2.0 - Official Distribution Portal</title>
+    <title>Scientific Linux 2.0 - Information Site</title>
     <style>
-        /* Estética Profesional de Servidor Oscuro */
+        /* Estilo Clásico e Institucional (Clon de la foto) */
         body {
-            background-color: #08080c;
-            color: #f0f4f8;
-            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            background-color: #e1e6eb; /* Fondo gris claro exterior */
+            color: #222222;
+            font-family: Arial, Helvetica, sans-serif;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
 
-        /* Línea superior de acento tecnológico */
-        .top-bar {
-            height: 4px;
-            background: linear-gradient(90deg, #00b0ff, #00e5ff);
+        /* Contenedor principal que centra la página blanca */
+        .wrapper {
             width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #ffffff; /* Fondo blanco central */
+            box-shadow: 0 0 10px rgba(0,0,0,0.15);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Header Corporativo */
+        /* Banner Superior Blanco */
         header {
-            background-color: #0f1015;
-            border-bottom: 1px solid #1e2230;
-            padding: 18px 40px;
+            background-color: #ffffff;
+            padding: 15px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-sizing: border-box;
+            border-bottom: 1px solid #cccccc;
         }
 
-        .brand-container {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-        }
-
-        /* El Átomo Original con Movimiento Continuo */
-        .atomo-logo {
-            position: relative;
-            width: 45px;
-            height: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .orbita {
-            position: absolute;
-            width: 100%;
-            height: 16px;
-            border: 2px solid #00e5ff;
-            border-radius: 50%;
-            animation: girarOrbita 6s linear infinite;
-        }
-        .orbita:nth-child(1) { transform: rotate(30deg); animation-delay: 0s; }
-        .orbita:nth-child(2) { transform: rotate(90deg); animation-delay: 2s; }
-        .orbita:nth-child(3) { transform: rotate(150deg); animation-delay: 4s; }
-        
-        @keyframes girarOrbita {
-            0% { transform: rotate(var(--r, 30deg)) scale(1); opacity: 0.7; }
-            50% { opacity: 0.3; }
-            100% { transform: rotate(var(--r, 30deg)) scale(1); opacity: 0.7; }
-        }
-        
-        .nucleo {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: #ffffff;
-            border-radius: 50%;
-            box-shadow: 0 0 12px #00e5ff;
-        }
-
-        .logo-texto {
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: 1px;
+        .logo-title {
+            font-size: 2.4rem;
+            font-weight: normal;
+            color: #111111;
+            letter-spacing: 1.5px;
+            font-family: 'Trebuchet MS', Arial, sans-serif;
             text-transform: uppercase;
         }
-        .logo-texto span {
-            color: #00e5ff;
-        }
-
-        .status-badge {
-            font-family: monospace;
-            font-size: 0.85rem;
-            color: #00e676;
-            background-color: rgba(0, 230, 118, 0.08);
-            border: 1px solid rgba(0, 230, 118, 0.3);
-            padding: 6px 14px;
-            border-radius: 4px;
+        .logo-title span {
+            color: #2a52be;
             font-weight: bold;
         }
 
-        /* Contenedor de Documentación Técnica */
-        .container {
-            max-width: 1100px;
-            width: 90%;
-            margin: 50px auto;
+        /* Espacio para la foto automática desde Internet */
+        .logo-foto-container {
+            display: flex;
+            align-items: center;
+        }
+        .logo-foto-container img {
+            height: 90px; /* Tamaño ideal para que resalte el átomo */
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* Barra de Navegación Azul Real */
+        nav {
+            background-color: #2a52be; /* El mismo azul de la foto */
+            padding: 0 20px;
+            display: flex;
+        }
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            border-right: 1px solid #1a3c96;
+            transition: background 0.2s;
+        }
+        nav a:hover, nav a.active {
+            background-color: #1a3c96;
+        }
+
+        /* Layout de Contenido: Cuerpo y Barra Lateral */
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            padding: 30px;
+            gap: 30px;
             flex-grow: 1;
         }
 
-        /* Presentación de la Distribución */
-        .hero-section {
-            border-bottom: 1px solid #1e2230;
-            padding-bottom: 40px;
-            margin-bottom: 40px;
-        }
-        .hero-section h1 {
-            font-size: 2.8rem;
-            margin: 0 0 15px 0;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-        .hero-section h1 span {
-            color: #00e5ff;
-        }
-        .hero-section p {
-            font-size: 1.2rem;
-            color: #90a4ae;
-            max-width: 850px;
-            margin: 0;
-            line-height: 1.7;
+        @media (max-width: 750px) {
+            .main-content { grid-template-columns: 1fr; }
         }
 
-        /* Bloques de Explicación del Sistema */
-        .grid-explicaciones {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-
-        .bloque-tecnico {
-            background-color: #0f1015;
-            border: 1px solid #1e2230;
-            border-radius: 8px;
-            padding: 30px;
-        }
-        .bloque-tecnico h2 {
-            font-size: 1.35rem;
+        /* Columna Izquierda (Bienvenida y Detalles) */
+        .content-left h1 {
+            color: #2a52be;
+            font-size: 1.9rem;
             margin-top: 0;
             margin-bottom: 15px;
-            color: #ffffff;
-            border-left: 3px solid #00e5ff;
-            padding-left: 12px;
+            border-bottom: 1px solid #dddddd;
+            padding-bottom: 10px;
         }
-        .bloque-tecnico p {
-            color: #90a4ae;
+        .content-left p {
             font-size: 0.95rem;
-            margin: 0;
             line-height: 1.6;
+            color: #333333;
+        }
+        .info-list {
+            margin-top: 20px;
+            padding-left: 20px;
+        }
+        .info-list li {
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+            color: #444444;
         }
 
-        /* Repositorio de Aplicaciones (Estructura Limpia) */
-        .apps-section {
-            background-color: #0f1015;
-            border: 1px solid #1e2230;
-            border-radius: 8px;
-            padding: 35px;
-            margin-bottom: 50px;
+        /* Columna Derecha (Barra Lateral de Noticias y Estado) */
+        .sidebar-box {
+            background-color: #f5f8fa;
+            border: 1px solid #cbd5e1;
+            margin-bottom: 20px;
         }
-        .apps-section h2 {
-            font-size: 1.5rem;
-            margin-top: 0;
-            margin-bottom: 25px;
+        .sidebar-title {
+            background-color: #2a52be;
             color: #ffffff;
-        }
-        .apps-section h2 span {
-            color: #00e5ff;
-        }
-
-        .apps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        /* Tarjeta de Aplicación con espacio para Logo Real */
-        .app-card {
-            background-color: #14161f;
-            border: 1px solid #222636;
-            border-radius: 6px;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-        .app-logo-frame {
-            width: 50px;
-            height: 50px;
-            background-color: #08080c;
-            border: 1px solid #2a2f45;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            flex-shrink: 0;
-        }
-        .app-logo-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .app-info h3 {
-            margin: 0 0 5px 0;
-            font-size: 1.1rem;
-            color: #ffffff;
-        }
-        .app-info p {
+            padding: 8px 12px;
+            font-size: 0.9rem;
+            font-weight: bold;
             margin: 0;
+        }
+        .sidebar-body {
+            padding: 15px;
             font-size: 0.85rem;
-            color: #78909c;
-            line-height: 1.4;
+            color: #444444;
+            line-height: 1.5;
         }
 
-        /* Footer de Infraestructura */
-        footer {
-            background-color: #0f1015;
-            border-top: 1px solid #1e2230;
-            padding: 25px 0;
-            font-size: 0.85rem;
-            color: #546e7a;
-            text-align: center;
-            font-family: monospace;
-        }
-        footer strong {
-            color: #00e5ff;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="top-bar"></div>
-
-    <!-- Navegación Profesional -->
-    <header>
-        <div class="brand-container">
-            <!-- El Átomo en Movimiento -->
-            <div class="atomo-logo">
-                <div class="orbita" style="--r: 30deg"></div>
-                <div class="orbita" style="--r: 90deg"></div>
-                <div class="orbita" style="--r: 150deg"></div>
-                <div class="nucleo"></div>
-            </div>
-            <div class="logo-texto">Scientific <span>Linux 2.0</span></div>
-        </div>
-        <div class="status-badge">REPOSITORY_MIRROR_ACTIVE</div>
-    </header>
-
-    <!-- Contenido Principal -->
-    <div class="container">
-        
-        <!-- Presentación de la Distribución -->
-        <section class="hero-section">
-            <h1>The Linux Architecture for <span>Education & Science</span></h1>
-            <p>Scientific Linux 2.0 es una distribución reconstruida sobre bases sólidas de código abierto. Su propósito es proveer un entorno de cómputo de alta velocidad, optimizado rigurosamente para laboratorios académicos y hardware que requiere un consumo mínimo de recursos del procesador.</p>
-        </section>
-
-        <!-- Bloques Obligatorios de Explicación -->
-        <section class="grid-explicaciones">
-            
-            <div class="bloque-tecnico">
-                <h2>Optimización de Recursos Base</h2>
-                <p>El sistema implementa una gestión de memoria estricta para garantizar un rendimiento óptimo en computadores escolares con limitaciones físicas de hardware (desde 1GB o 2GB de memoria RAM), reduciendo la latencia de procesamiento drásticamente.</p>
-            </div>
-
-            <div class="bloque-tecnico">
-                <h2>Entorno de Cómputo Limpio</h2>
-                <p>Diseñado exclusivamente para la ejecución de herramientas científicas, compiladores nativos y desarrollo lógico. Se eliminaron todos los paquetes redundantes de telemetría y software comercial para mantener la integridad del kernel.</p>
-            </div>
-
-            <div class="bloque-tecnico">
-                <h2>Arquitectura de Red Educativa</h2>
-                <p>Incluye protocolos integrados para la conexión directa a servidores locales de datos, facilitando el despliegue masivo en laboratorios escolares y centros de investigación independientes sin necesidad de configuraciones complejas.</p>
-            </div>
-
-        </section>
-
-        <!-- Sección de Software Integrado de Fábrica con Logos Reales -->
-        <section class="apps-section">
-            <h2>Paquetes de Software <span>Pre-instalados</span></h2>
-            <div class="apps-grid">
-                
-                <!-- Aplicación 1 -->
-                <div class="app-card">
-                    <div class="app-logo-frame">
-                        <!-- Recuerda subir 'sys-repair.png' a tu GitHub -->
-                        <img src="sys-repair.png" alt="Sys-Repair Logo" onerror="this.style.display='none'; this.parentNode.innerText='⚙️'">
-                    </div>
-                    <div class="app-info">
-                        <h3>Sys-Repair Tool</h3>
-                        <p>Analizador de bajo nivel para el diagnóstico de componentes internos y optimización física de laptops.</p>
-                    </div>
-                </div>
-
-                <!-- Aplicación 2 -->
-                <div class="app-card">
-                    <div class="app-logo-frame">
-                        <!-- Recuerda subir 'chem-lab.png' a tu GitHub -->
-                        <img src="chem-lab.png" alt="Chem-Lab Logo" onerror="this.style.display='none'; this.parentNode.innerText='⚛️'">
-                    </div>
-                    <div class="app-info">
-                        <h3>Chem-Lab Suite</h3>
-                        <p>Entorno de análisis molecular y simulación atómica nativa para proyectos de química aplicada.</p>
-                    </div>
-                </div>
-
-                <!-- Aplicación 3 -->
-                <div class="app-card">
-                    <div class="app-logo-frame">
-                        <!-- Recuerda subir 'orbit-calc.png' a tu GitHub -->
-                        <img src="orbit-calc.png" alt="Orbit-Calc Logo" onerror="this.style.display='none'; this.parentNode.innerText='🚀'">
-                    </div>
-                    <div class="app-info">
-                        <h3>Orbit-Calc Engine</h3>
-                        <p>Sistema de cálculo numérico diseñado para el modelado matemático de trayectorias aeroespaciales.</p>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-    </div>
-
-    <!-- Pie de Página de Ingeniería -->
-    <footer>
-        DISTRIBUTION ARCHITECTURE DIRECTED BY <strong>DEYNER</strong> & <strong>GEMINI</strong> | CORE SYSTEM v2.0 © 2026
-    </footer>
-
-</body>
-</html>
+        /* Barra de progreso de desarrollo */
+        .progress-container {
+            background-color: #dddddd;
+            border-radius: 2px;
+            height: 12px;
+            width: 100%;
