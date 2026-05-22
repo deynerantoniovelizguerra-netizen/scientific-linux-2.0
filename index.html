@@ -2,47 +2,62 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Scientific Linux 2.0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Operativo | Deyner & Gemini</title>
     <style>
-        body { background-color: #e1e6eb; font-family: Arial, sans-serif; margin: 0; padding: 0; }
-        .wrapper { width: 100%; max-width: 1200px; margin: 0 auto; background-color: #ffffff; min-height: 100vh; display: flex; flex-direction: column; }
-        header { padding: 20px 40px; border-bottom: 1px solid #ccc; display: flex; align-items: center; justify-content: space-between; }
-        .logo-text { font-size: 2.5rem; font-weight: bold; color: #333; }
-        nav { background-color: #003399; padding: 10px 40px; display: flex; }
-        nav a { color: #ffffff; text-decoration: none; padding: 10px 15px; font-weight: bold; font-size: 0.9rem; }
-        nav a:hover { background-color: #002266; }
-        .main-container { display: grid; grid-template-columns: 2fr 1fr; padding: 40px; gap: 40px; }
-        h1 { color: #003399; }
-        .sidebar { background-color: #f0f0f0; padding: 20px; border: 1px solid #ccc; }
+        /* Estilos generales */
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background-color: #0b0d17; color: #e0e0e0; scroll-behavior: smooth; }
+        
+        /* Menú fijo */
+        nav { background: #1a1a2e; padding: 20px; position: sticky; top: 0; text-align: center; border-bottom: 3px solid #4cc9f0; z-index: 1000; }
+        nav a { color: #4cc9f0; margin: 0 15px; text-decoration: none; font-weight: bold; font-size: 1.1em; transition: 0.3s; }
+        nav a:hover { color: #f72585; }
+        
+        /* Secciones */
+        section { padding: 80px 20px; max-width: 800px; margin: auto; border-bottom: 1px solid #333; }
+        h1, h2 { color: #f72585; text-transform: uppercase; }
+        
+        /* Estilo de la imagen */
+        .imagen-ciencia { width: 100%; max-width: 600px; border-radius: 20px; display: block; margin: 20px auto; border: 4px solid #4cc9f0; box-shadow: 0 0 20px rgba(76, 201, 240, 0.5); }
     </style>
 </head>
 <body>
 
-<div class="wrapper">
-    <header>
-        <div class="logo-text">SCIENTIFIC LINUX</div>
-    </header>
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">Quiénes somos</a>
+    <a href="#community">Community</a>
+    <a href="#docs">Documentation</a>
+    <a href="#downloads">Downloads</a>
+</nav>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="community.html">Community</a>
-        <a href="documentation.html">Documentation</a>
-        <a href="downloads.html">Downloads</a>
-    </nav>
+<section id="home">
+    <h1>Bienvenido al Sistema Operativo</h1>
+    <img src="astronomia.jpg" alt="Imagen de astronomía" class="imagen-ciencia">
+    <p>Hola estudiante o científico. Bienvenido a nuestro sistema operativo, creado por <strong>Deyner Antonio Veliz Guerra</strong> y <strong>Gemini</strong>. Estamos listos para comenzar esta aventura informática.</p>
+</section>
 
-    <div class="main-container">
-        <main>
-            <h1>Community</h1>
-            <p>Scientific Linux is a community project. Our official community involvement starts with the Scientific Linux Mailing Lists.</p>
-        </main>
+<section id="about">
+    <h2>Quiénes somos</h2>
+    <p>Nosotros somos Deyner Antonio Veliz Guerra, un estudiante que está en Venezuela, al que le gusta mucho la ciencia y la informática. Gemini es el que nos ayuda a nosotros a crear los códigos y algunos elementos de los cuales todavía no tenemos conocimiento, pero cada día aprendemos más. Igualmente te damos la bienvenida, que disfrutes nuestro sistema operativo. Aquí fuera Deyner y Gemini, ¡BIENVENIDO!</p>
+</section>
 
-        <aside class="sidebar">
-            <h3>Scientific Linux News</h3>
-            <p>News and updates go here.</p>
-        </aside>
-    </div>
-</div>
+<section id="community">
+    <h2>Community</h2>
+    <p>Este es nuestro soporte de ayuda. Si necesitas asistencia, estamos a la orden.</p>
+    <p><strong>Teléfono de contacto:</strong> 0416-7533939</p>
+</section>
+
+<section id="docs">
+    <h2>Documentation</h2>
+    <p>Aquí encontrarás todo lo necesario para aprender a manejar nuestro sistema operativo. Desde la instalación hasta los comandos avanzados. ¡Explora el manual y conviértete en un experto junto a nosotros!</p>
+</section>
+
+<section id="downloads">
+    <h2>Downloads</h2>
+    <p><strong>Fecha de lanzamiento oficial:</strong> Por determinar.</p>
+    <p>Disculpa, estimado usuario; todavía no contamos con una fecha exacta de lanzamiento. Hemos tenido algunos inconvenientes debido a que nuestro equipo no es tan avanzado, pero seguimos trabajando con mucho esfuerzo para traerte lo mejor. ¡Gracias por tu paciencia y comprensión!</p>
+</section>
 
 </body>
 </html>
