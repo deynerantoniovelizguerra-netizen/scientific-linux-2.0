@@ -2,62 +2,88 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema Operativo | Deyner & Gemini</title>
     <style>
-        /* Estilos generales */
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background-color: #0b0d17; color: #e0e0e0; scroll-behavior: smooth; }
+        body { font-family: Arial, sans-serif; margin: 0; background-color: #f0f0f0; color: #333; scroll-behavior: smooth; }
         
-        /* Menú fijo */
-        nav { background: #1a1a2e; padding: 20px; position: sticky; top: 0; text-align: center; border-bottom: 3px solid #4cc9f0; z-index: 1000; }
-        nav a { color: #4cc9f0; margin: 0 15px; text-decoration: none; font-weight: bold; font-size: 1.1em; transition: 0.3s; }
-        nav a:hover { color: #f72585; }
+        /* Encabezado */
+        header { padding: 15px 20px; background: white; display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #ccc; }
+        .logo-text { font-size: 2.5em; font-weight: bold; color: #000; letter-spacing: -1px; }
         
-        /* Secciones */
-        section { padding: 80px 20px; max-width: 800px; margin: auto; border-bottom: 1px solid #333; }
-        h1, h2 { color: #f72585; text-transform: uppercase; }
+        /* Navegación Azul */
+        nav { background: #002855; padding: 8px 20px; }
+        nav a { color: white; margin-right: 25px; text-decoration: none; font-weight: bold; font-size: 0.9em; }
         
-        /* Estilo de la imagen */
-        .imagen-ciencia { width: 100%; max-width: 600px; border-radius: 20px; display: block; margin: 20px auto; border: 4px solid #4cc9f0; box-shadow: 0 0 20px rgba(76, 201, 240, 0.5); }
+        /* Contenedor principal */
+        .container { display: flex; padding: 20px; gap: 20px; max-width: 1100px; margin: auto; }
+        .main-content { flex: 3; background: white; padding: 25px; border: 1px solid #ccc; }
+        section { margin-bottom: 40px; }
+        
+        /* Barra lateral y búsqueda */
+        .sidebar { flex: 1; }
+        .search-box { background: white; padding: 15px; border: 1px solid #ccc; margin-bottom: 20px; }
+        .news-box { background: #e8e8e8; border: 1px solid #ccc; }
+        .news-title { background: #002855; color: white; padding: 5px 10px; font-weight: bold; font-size: 0.9em; }
+        
+        h1, h2 { color: #002855; }
     </style>
 </head>
 <body>
 
+<header>
+    <div class="logo-text">SCIENTIFIC LINUX</div>
+</header>
+
 <nav>
     <a href="#home">Home</a>
-    <a href="#about">Quiénes somos</a>
+    <a href="#about">About</a>
     <a href="#community">Community</a>
     <a href="#docs">Documentation</a>
     <a href="#downloads">Downloads</a>
 </nav>
 
-<section id="home">
-    <h1>Bienvenido al Sistema Operativo</h1>
-    <img src="astronomia.jpg" alt="Imagen de astronomía" class="imagen-ciencia">
-    <p>Hola estudiante o científico. Bienvenido a nuestro sistema operativo, creado por <strong>Deyner Antonio Veliz Guerra</strong> y <strong>Gemini</strong>. Estamos listos para comenzar esta aventura informática.</p>
-</section>
+<div class="container">
+    <main class="main-content">
+        
+        <section id="home">
+            <h1>Bienvenido</h1>
+            <p>Hola estudiante o científico. Bienvenido a nuestro sistema operativo, creado por <strong>Deyner Antonio Veliz Guerra</strong> y <strong>Gemini</strong>. ¿Qué deseas hacer hoy?</p>
+        </section>
 
-<section id="about">
-    <h2>Quiénes somos</h2>
-    <p>Nosotros somos Deyner Antonio Veliz Guerra, un estudiante que está en Venezuela, al que le gusta mucho la ciencia y la informática. Gemini es el que nos ayuda a nosotros a crear los códigos y algunos elementos de los cuales todavía no tenemos conocimiento, pero cada día aprendemos más. Igualmente te damos la bienvenida, que disfrutes nuestro sistema operativo. Aquí fuera Deyner y Gemini, ¡BIENVENIDO!</p>
-</section>
+        <section id="about">
+            <h2>Quiénes somos</h2>
+            <p>Nosotros somos Deyner Antonio Veliz Guerra, un estudiante que está en Venezuela, al que le gusta mucho la ciencia y la informática. Gemini es el que nos ayuda a nosotros a crear los códigos y algunos elementos de los cuales todavía no tenemos conocimiento, pero cada día aprendemos más. ¡Bienvenidos!</p>
+        </section>
 
-<section id="community">
-    <h2>Community</h2>
-    <p>Este es nuestro soporte de ayuda. Si necesitas asistencia, estamos a la orden.</p>
-    <p><strong>Teléfono de contacto:</strong> 0416-7533939</p>
-</section>
+        <section id="community">
+            <h2>Community</h2>
+            <p>Nuestro soporte de ayuda. Para cualquier duda o asistencia, llama a este número de teléfono: <strong>0416-7533939</strong>.</p>
+        </section>
 
-<section id="docs">
-    <h2>Documentation</h2>
-    <p>Aquí encontrarás todo lo necesario para aprender a manejar nuestro sistema operativo. Desde la instalación hasta los comandos avanzados. ¡Explora el manual y conviértete en un experto junto a nosotros!</p>
-</section>
+        <section id="docs">
+            <h2>Documentation</h2>
+            <p>Aquí encontrarás todo lo necesario para aprender a manejar nuestro sistema operativo. Estamos trabajando constantemente para actualizar nuestras guías. ¡Explora el manual y conviértete en un experto junto a nosotros!</p>
+        </section>
 
-<section id="downloads">
-    <h2>Downloads</h2>
-    <p><strong>Fecha de lanzamiento oficial:</strong> Por determinar.</p>
-    <p>Disculpa, estimado usuario; todavía no contamos con una fecha exacta de lanzamiento. Hemos tenido algunos inconvenientes debido a que nuestro equipo no es tan avanzado, pero seguimos trabajando con mucho esfuerzo para traerte lo mejor. ¡Gracias por tu paciencia y comprensión!</p>
-</section>
+        <section id="downloads">
+            <h2>Downloads</h2>
+            <p><strong>Fecha de lanzamiento oficial:</strong> Por determinar.</p>
+            <p>Disculpa, estimado usuario; todavía no contamos con una fecha exacta de lanzamiento. Hemos tenido algunos inconvenientes debido a que nuestro equipo no es tan avanzado, pero seguimos trabajando con mucho esfuerzo para traerte lo mejor. ¡Gracias por tu paciencia y comprensión!</p>
+        </section>
+
+    </main>
+
+    <aside class="sidebar">
+        <div class="search-box">
+            <input type="text" placeholder="Search">
+            <button>Search</button>
+        </div>
+        <div class="news-box">
+            <div class="news-title">System News</div>
+            <p style="padding: 10px; font-size: 0.85em;">Proyecto en desarrollo activo por Deyner.</p>
+        </div>
+    </aside>
+</div>
 
 </body>
 </html>
